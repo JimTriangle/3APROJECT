@@ -1,0 +1,11 @@
+CREATE TABLE "Users" ("Id_user" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL ,
+ "Nom_user" VARCHAR NOT NULL , 
+ "Prenom_user" VARCHAR NOT NULL , 
+ "email_user" VARCHAR NOT NULL ,
+ "password_user" VARCHAR NOT NULL ,
+ "date_naiss_user" DATETIME NOT NULL);
+
+CREATE TABLE "Tokens" ("Id_token" INTEGER PRIMARY KEY  NOT NULL ,
+"Id_user" INTEGER NOT NULL,
+"token" VARCHAR NOT NULL,
+ FOREIGN KEY(Id_user) REFERENCES Users(Id_user));
