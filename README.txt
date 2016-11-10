@@ -13,3 +13,15 @@ Membres du groupe :
 - Pujolas Alex
 
 
+
+Rôles :
+
+Laura : Docker + route (swagger)
+
+Matthieu : Application iOs
+
+Alex : Authentification server
+
+Antoine : Alert System
+
+Jean-Marie : Reddis Bdd App et Sqlite Bdd User
