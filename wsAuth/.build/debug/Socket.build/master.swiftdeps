@@ -1,0 +1,7 @@
+version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
+options: "f502731bb83096285699aba93cbcbdab"
+build_time: [532081288, 494999000]
+inputs:
+  "/home/wasoh/wsAuth/Packages/Socket-0.11.39/Sources/SocketProtocols.swift": [532019904, 0]
+  "/home/wasoh/wsAuth/Packages/Socket-0.11.39/Sources/SocketUtils.swift": [532019904, 0]
+  "/home/wasoh/wsAuth/Packages/Socket-0.11.39/Sources/Socket.swift": [532019904, 0]

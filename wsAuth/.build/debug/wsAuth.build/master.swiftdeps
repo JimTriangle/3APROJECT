@@ -1,0 +1,8 @@
+version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
+options: "76d82228a85d83d31cad70e71a1e7a3d"
+build_time: [532426721, 446054000]
+inputs:
+  "/home/wasoh/wsAuth/Sources/wsAuth/main.swift": [532426716, 0]
+  "/home/wasoh/wsAuth/Sources/wsAuth/checkDb.swift": [532426224, 0]
+  "/home/wasoh/wsAuth/Sources/wsAuth/swift/users.swift": [532106815, 0]
+  "/home/wasoh/wsAuth/Sources/wsAuth/swift/tokens.swift": [532106815, 0]

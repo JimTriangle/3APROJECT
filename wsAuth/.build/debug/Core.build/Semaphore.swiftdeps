@@ -1,0 +1,63 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+provides-nominal:
+provides-member:
+- ["C8Dispatch17DispatchSemaphore", ""]
+- ["C8Dispatch17DispatchSemaphore", "wait"]
+depends-top-level:
+- "Double"
+- "DispatchSemaphore"
+- "DispatchTimeoutResult"
+- !private "DispatchTime"
+depends-member:
+- !private ["Ps9AnyObject", "DispatchTime"]
+- ["Ps9AnyObject", "wait"]
+- !private ["Ps10Comparable", "init"]
+- !private ["C8Dispatch14DispatchObject", "DispatchTime"]
+- ["C8Dispatch14DispatchObject", "DispatchTimeoutResult"]
+- ["C8Dispatch14DispatchObject", "Double"]
+- ["C8Dispatch14DispatchObject", "wait"]
+- !private ["C8Dispatch17DispatchSemaphore", "DispatchTime"]
+- ["C8Dispatch17DispatchSemaphore", "DispatchTimeoutResult"]
+- ["C8Dispatch17DispatchSemaphore", "Double"]
+- ["C8Dispatch17DispatchSemaphore", "deinit"]
+- ["C8Dispatch17DispatchSemaphore", "wait"]
+- ["V8Dispatch12DispatchTime", "deinit"]
+- !private ["V8Dispatch12DispatchTime", "init"]
+- ["O8Dispatch21DispatchTimeoutResult", "deinit"]
+- ["Sd", "deinit"]
+- !private ["Ps9Equatable", "init"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "Ps10Comparable"
+- "C8Dispatch14DispatchObject"
+- "C8Dispatch17DispatchSemaphore"
+- "V8Dispatch12DispatchTime"
+- "O8Dispatch21DispatchTimeoutResult"
+- "Sd"
+- !private "Ps9Equatable"
+depends-dynamic-lookup:
+depends-external:
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/Visibility.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/SwiftStdint.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/UnicodeShims.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/SwiftStddef.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/LibcShims.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RuntimeStubs.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RuntimeShims.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RefCount.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/HeapObject.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/GlobalObjects.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/FoundationShims.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/DispatchShims.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/module.modulemap"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/dispatch/module.modulemap"
+- "/home/wasoh/wsAuth/.build/debug/libc.swiftmodule"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Foundation.swiftmodule"
+interface-hash: "c9992a8aaf215ea9b91542c41fe17cd9"

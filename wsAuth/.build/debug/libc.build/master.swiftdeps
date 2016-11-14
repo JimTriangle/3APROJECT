@@ -1,0 +1,5 @@
+version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
+options: "7e298efb901190d7e884ce823f8163ab"
+build_time: [532091169, 201634000]
+inputs:
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/libc/libc.swift": [532091158, 0]

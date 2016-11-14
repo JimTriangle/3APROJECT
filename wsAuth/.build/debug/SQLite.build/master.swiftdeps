@@ -1,0 +1,5 @@
+version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
+options: "d6c16a34914012c3db337a0f00301831"
+build_time: [532091173, 908544000]
+inputs:
+  "/home/wasoh/wsAuth/Packages/SQLite-1.0.2/Sources/SQLite/SQLite.swift": [532091151, 0]
