@@ -1,4 +1,6 @@
-var redis = require("redis"), client = redis.createClient();
+var redis = require("redis");
+var client = redis.createClient();
+var Activity = require("./Activity.js");
 
 // if you'd like to select database 3, instead of 0 (default), call
 // client.select(3, function() { /* ... */ });
@@ -63,7 +65,7 @@ app.get('/alert/geo', function (req, res)
 
     if(longitude == null || latitude == null)
     {
-      res.json({"error" : "required parameters missing"});
+        res.json({"error" : "required parameters missing"});
     }
 
     var subscribeRoute = "localhost:3000/subChannel/geopos";
@@ -107,150 +109,157 @@ app.get('/alert/topic', function (req, res)
 
 app.get("/user/:token", function(req, res)
 {
-  // TODO check validity of token
-  // TODO retrieve all user token
-  console.log(req.params.token);
-  var tokens = ["3FE263", "3EAB547"];
-  var activities = [];
-  var promises1 = [];
-  for (var key in tokens)
-  {
-    var key_db = "activity:token:" + tokens[key] + ":*";
-    var promise = new Promise(function(resolve1, reject1)
+    // TODO check validity of token
+    // TODO retrieve all user token
+    var tokens = ["3EAB547"];
+    tokens.push(req.params.token);
+    var activities = [];
+    var keyPromises = [];
+    for (var iToken = 0; iToken < tokens.length; ++iToken)
     {
-      client.keys(key_db, function(err, reply)
-      {
-          var promises2 = [];
-          for (var key_activities in reply)
-          {
-            var promise_2 = new Promise(function(resolve2, reject2)
+        var key_db = "activity:token:" + tokens[iToken] + ":*";
+        var keyPromise = new Promise(function(keyResolve, keyReject)
+        {
+            client.keys(key_db, function(keyErr, keyReply)
             {
-              client.hgetall(reply[key_activities], function(err, reply2)
-              {
-                  var activity = {};
-                  fillActivityTable(reply2, activity);
-                  activities.push(activity);
-                  resolve2(true);
-              });
+                var getPromises = [];
+                for (var key_activities in keyReply)
+                {
+                    var getPromise = new Promise(function(getResolve, getReject)
+                    {
+                        client.hgetall(keyReply[key_activities], function(getErr, getReply)
+                        {
+                            var newActivity = new Activity();
+                            newActivity.hydrateFromDB(getReply);
+                            activities.push(newActivity);
+                            getResolve(true);
+                        });
+                    });
+                    getPromises.push(getPromise);
+                }
+                Promise.all(getPromises).then(function() {keyResolve(true);}, function() {keyReject(true);});
             });
-            promises2.push(promise_2);
-          }
-          Promise.all(promises2).then(function() {resolve1(true);});
         });
-      });
-      promises1.push(promise);
+        keyPromises.push(keyPromise);
     }
-  Promise.all(promises1).then(function()
-  {
-    console.log(activities);
-    console.log(JSON.stringify(activities));
-    console.log(activities == Array);
-    res.send(activities);
-  });
+    Promise.all(keyPromises).then(function()
+    {
+        res.send(activities);
+    }, function()
+    {
+        res.json({"error" : "required parameters missing"});
+    });
 });
 
 app.get("/geo", function(req, res)
 {
-  // TODO check validity of token
-  // TODO retrieve all user token
-  var rejection = false;
-  var userToken = req.query.token != undefined ? req.query.token : null;
-  var latitude = req.query.latitude != undefined ? req.query.latitude : null;
-  var longitude = req.query.longitude != undefined ? req.query.longitude : null;
-  var perimeter = req.query.perimeter != undefined ? req.query.perimeter : null;
-  var time = req.query.time != undefined ? req.query.time : null;
-  console.log("userToken :" + userToken);
-  console.log("latitude :" + latitude);
-  console.log("longitude :" + longitude);
-  if(userToken == null || latitude == null || longitude == null)
-  {
-    rejection = true;
-  }
-  var activities = [];
-  var promise = new Promise(function(resolve1, reject1)
-  {
-    if(rejection)
+    // TODO check validity of token
+    // TODO retrieve all user token
+    var rejection = false;
+    var userToken = req.query.token != undefined ? req.query.token : null;
+    var latitude = req.query.latitude != undefined ? req.query.latitude : null;
+    var longitude = req.query.longitude != undefined ? req.query.longitude : null;
+    var perimeter = req.query.perimeter != undefined ? req.query.perimeter : null;
+    var time = req.query.time != undefined ? req.query.time : null;
+    if(userToken == null || latitude == null || longitude == null)
     {
-      reject(true);
+        rejection = true;
     }
-    var key_db = "activity:geoposition:" + latitude + ":" + longitude + ":*";
-    client.keys(key_db, function(err, reply)
+    var activities = [];
+    var keyPromise = new Promise(function(keyResolve, keyReject)
     {
-        var promises2 = [];
-        for (var key_activities in reply)
+        if(rejection)
         {
-          var promise_2 = new Promise(function(resolve2, reject2)
-          {
-            client.hgetall(reply[key_activities], function(err, reply2)
-            {
-                var activity = {};
-                fillActivityTable(reply2, activity);
-                activity["geoposition"]["latitude"] = latitude;
-                activity["geoposition"]["longitude"] = longitude;
-                activities.push(activity);
-                resolve2(true);
-            });
-          });
-          promises2.push(promise_2);
+            keyReject(true);
         }
-        Promise.all(promises2).then(function() {resolve1(true);});
-      });
+        var key_db = "activity:geoposition:" + latitude + ":" + longitude + ":*";
+        client.keys(key_db, function(keyErr, keyReply)
+        {
+            var getPromises = [];
+            for (var key_activities in keyReply)
+            {
+                var getPromise = new Promise(function(getResolve, getReject)
+                {
+                    client.hgetall(keyReply[key_activities], function(getErr, getReply)
+                    {
+                        var newActivity = new Activity();
+                        newActivity.hydrateFromDB(getReply);
+                        newActivity.setLatitude(latitude);
+                        newActivity.setLongitude(longitude);
+                        activities.push(newActivity);
+                        getResolve(true);
+                    });
+                });
+                getPromises.push(getPromise);
+            }
+            Promise.all(getPromises).then(function() {keyResolve(true);}, function(){ keyReject(true);});
+        });
     });
-  promise.then(function() { console.log(activities); res.json(activities);}, function() { res.json({"error" : "required parameters missing"});});
+    keyPromise.then(function()
+    {
+        console.log(activities);
+        res.json(activities);
+    }, function()
+    {
+        res.json({"error" : "required parameters missing"});
+    });
 });
 
 
 app.get("/topic", function(req, res)
 {
-  // TODO check validity of token
-  // TODO retrieve all user token
-  var rejection = false;
-  var userToken = req.query.token != undefined ? req.query.token : null;
-  var topic = req.query.topic != undefined ? req.query.topic : null;
-  var latitude = req.query.latitude != undefined ? req.query.latitude : null;
-  var longitude = req.query.longitude != undefined ? req.query.longitude : null;
-  console.log("userToken :" + userToken);
-  console.log("topic :" + topic);
-  console.log("latitude :" + latitude);
-  console.log("longitude :" + longitude);
-  if(userToken == null || topic == null)
-  {
-    rejection = true;
-  }
-  var activities = [];
-  var promise = new Promise(function(resolve1, reject1)
-  {
-    if(rejection)
+    // TODO check validity of token
+    // TODO retrieve all user token
+    var rejection = false;
+    var userToken = req.query.token != undefined ? req.query.token : null;
+    var topic = req.query.topic != undefined ? req.query.topic : null;
+    var latitude = req.query.latitude != undefined ? req.query.latitude : null;
+    var longitude = req.query.longitude != undefined ? req.query.longitude : null;
+    if(userToken == null || topic == null)
     {
-      reject(true);
+        rejection = true;
     }
-    var key_db = "activity:topic:" + topic + ":*";
-    client.keys(key_db, function(err, reply)
+    var activities = [];
+    var keyPromise = new Promise(function(keyResolve, keyReject)
     {
-        var promises2 = [];
-        for (var key_activities in reply)
+        if(rejection)
         {
-          var promise_2 = new Promise(function(resolve2, reject2)
-          {
-            client.hgetall(reply[key_activities], function(err, reply2)
-            {
-                var activity = {};
-                fillActivityTable(reply2, activity);
-                activity["topic"] = topic;
-                // Trier par localisation si précisé
-                if((latitude == null && longitude == null) || (latitude == activity["geoposition"]["latitude"] && longitude == activity["geoposition"]["longitude"]))
-                {
-                  activities.push(activity);
-                }
-                resolve2(true);
-            });
-          });
-          promises2.push(promise_2);
+            keyReject(true);
         }
-        Promise.all(promises2).then(function() {resolve1(true);});
-      });
+        var key_db = "activity:topic:" + topic + ":*";
+        client.keys(key_db, function(keyErr, keyReply)
+        {
+            var getPromises = [];
+            for (var key_activities in keyReply)
+            {
+                var getPromise = new Promise(function(getResolve, getReject)
+                {
+                    client.hgetall(keyReply[key_activities], function(getErr, getReply)
+                    {
+                        var activity = {};
+                        fillActivityTable(reply2, activity);
+                        activity["topic"] = topic;
+                        // Trier par localisation si précisé
+                        if((latitude == null && longitude == null) || (latitude == activity["geoposition"]["latitude"] && longitude == activity["geoposition"]["longitude"]))
+                        {
+                            activities.push(activity);
+                        }
+                        getResolve(true);
+                    });
+                });
+                getPromises.push(getPromise);
+        }
+        Promise.all(getPromises).then(function() {keyResolve(true);}, function() {keyReject(true);});
+        });
     });
-  promise.then(function() { console.log(activities); res.json(activities);}, function() { res.json({"error" : "required parameters missing"});});
+    keyPromise.then(function()
+    {
+        console.log(activities);
+        res.json(activities);
+    }, function()
+    {
+        res.json({"error" : "required parameters missing"});
+    });
 });
 
 app.post("/topic", function(req, res)
@@ -266,26 +275,3 @@ app.put("/topic", function(req, res)
 app.listen(8090, function () {
   console.log('Example app listening on port 8090!');
 });
-
-
-function fillActivityTable(data, table)
-{
-  if(data['topic'] != undefined)
-  {
-    table.topic = data['topic'];
-  }
-
-  if(data['date'] != undefined)
-  {
-    table.date = data['date'];
-  }
-
-  table.geoposition = {};
-  if(data['geoposition'] != undefined)
-  {
-    table.geoposition.latitude = data['geoposition'].split(",")[0];
-    table.geoposition.longitude = data['geoposition'].split(",")[1];
-  }
-
-  table.popularity = 1;
-}
