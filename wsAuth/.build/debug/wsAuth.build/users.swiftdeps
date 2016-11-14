@@ -1,0 +1,75 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "Users"
+provides-nominal:
+- "C6wsAuth5Users"
+provides-member:
+- ["C6wsAuth5Users", ""]
+depends-top-level:
+- "Users"
+- "Int"
+- "AssignmentPrecedence"
+- "String"
+depends-member:
+- !private ["Ps9AnyObject", "date_naiss_user"]
+- !private ["Ps9AnyObject", "id_user"]
+- !private ["Ps9AnyObject", "nom_user"]
+- !private ["Ps9AnyObject", "prenom_user"]
+- !private ["Ps9AnyObject", "pseudo_user"]
+- ["Ps9AnyObject", ""]
+- ["Si", "deinit"]
+- ["SS", "deinit"]
+- ["C6wsAuth5Users", "Int"]
+- ["C6wsAuth5Users", "String"]
+- ["C6wsAuth5Users", "date_naiss_user"]
+- ["C6wsAuth5Users", "deinit"]
+- ["C6wsAuth5Users", "id_user"]
+- ["C6wsAuth5Users", "init"]
+- ["C6wsAuth5Users", "nom_user"]
+- ["C6wsAuth5Users", "prenom_user"]
+- ["C6wsAuth5Users", "pseudo_user"]
+depends-nominal:
+- "Ps9AnyObject"
+- "Si"
+- "SS"
+- "C6wsAuth5Users"
+depends-dynamic-lookup:
+depends-external:
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/Visibility.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/SwiftStdint.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/UnicodeShims.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/SwiftStddef.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/LibcShims.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RuntimeStubs.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RuntimeShims.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RefCount.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/HeapObject.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/GlobalObjects.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/FoundationShims.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/DispatchShims.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/module.modulemap"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/home/wasoh/wsAuth/.build/debug/SQLite.swiftmodule"
+- "/home/wasoh/wsAuth/.build/debug/SwiftyJSON.swiftmodule"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Foundation.swiftmodule"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/dispatch/module.modulemap"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
+- "/home/wasoh/wsAuth/.build/debug/HeliumLogger.swiftmodule"
+- "/home/wasoh/wsAuth/.build/debug/LoggerAPI.swiftmodule"
+- "/home/wasoh/wsAuth/.build/debug/Kitura.swiftmodule"
+- "/home/wasoh/wsAuth/.build/debug/KituraNet.swiftmodule"
+- "/home/wasoh/wsAuth/Packages/CEpoll-0.1.0/module.modulemap"
+- "/home/wasoh/wsAuth/Packages/OpenSSL-0.2.2/module.modulemap"
+- "/home/wasoh/wsAuth/.build/debug/CHTTPParser.build/module.modulemap"
+- "/home/wasoh/wsAuth/Packages/CEpoll-0.1.0/shim.h"
+- "/home/wasoh/wsAuth/Packages/CCurl-0.2.3/module.modulemap"
+- "/home/wasoh/wsAuth/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/http_parser.h"
+- "/home/wasoh/wsAuth/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/utils.h"
+- "/home/wasoh/wsAuth/.build/debug/SSLService.swiftmodule"
+- "/home/wasoh/wsAuth/.build/debug/Socket.swiftmodule"
+- "/home/wasoh/wsAuth/.build/debug/KituraTemplateEngine.swiftmodule"
+interface-hash: "b404f3383a037846b0863df548b1a6f6"

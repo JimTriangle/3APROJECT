@@ -1,0 +1,5 @@
+version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
+options: "216c6d728d2979b4ddcef42bb40b1c99"
+build_time: [532081288, 495521000]
+inputs:
+  "/home/wasoh/wsAuth/Packages/Kitura-TemplateEngine-1.1.0/Sources/KituraTemplateEngine/TemplateEngine.swift": [532019931, 0]

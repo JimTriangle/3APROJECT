@@ -1,0 +1,173 @@
+{
+  "": {
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/master.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/Array.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Array.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/Array.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/Array~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Array.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/Dispatch.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Dispatch.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/Dispatch.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/Dispatch~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Dispatch.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/Box.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Box.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/Box.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/Box~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Box.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/Lock.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Lock.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/Lock.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/Lock~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Lock.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/UnsignedInteger.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/UnsignedInteger.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/UnsignedInteger.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/UnsignedInteger~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/UnsignedInteger.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/Collection+Safe.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Collection+Safe.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/Collection+Safe.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/Collection+Safe~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Collection+Safe.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/String+CaseInsensitiveCompare.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/String+CaseInsensitiveCompare.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/String+CaseInsensitiveCompare.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/String+CaseInsensitiveCompare~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/String+CaseInsensitiveCompare.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/Strand.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Strand.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/Strand.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/Strand~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Strand.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/Result.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Result.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/Result.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/Result~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Result.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/Equatable.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Equatable.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/Equatable.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/Equatable~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Equatable.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/Bool+String.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Bool+String.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/Bool+String.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/Bool+String~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Bool+String.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/PercentEncoding.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/PercentEncoding.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/PercentEncoding.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/PercentEncoding~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/PercentEncoding.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/DispatchTime+Utilities.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/DispatchTime+Utilities.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/DispatchTime+Utilities.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/DispatchTime+Utilities~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/DispatchTime+Utilities.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/Extractable.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Extractable.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/Extractable.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/Extractable~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Extractable.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/String.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/String.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/String.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/String~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/String.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/FileProtocol.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/FileProtocol.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/FileProtocol.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/FileProtocol~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/FileProtocol.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/Semaphore.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Semaphore.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/Semaphore.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/Semaphore~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Semaphore.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/StaticDataBuffer.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/StaticDataBuffer.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/StaticDataBuffer.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/StaticDataBuffer~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/StaticDataBuffer.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/Portal.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Portal.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/Portal.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/Portal~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Portal.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/Sequence.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Sequence.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/Sequence.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/Sequence~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Sequence.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/RFC1123.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/RFC1123.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/RFC1123.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/RFC1123~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/RFC1123.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/Byte/Byte.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Byte.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/Byte/Byte.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/Byte~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Byte.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/Byte/BytesConvertible.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/BytesConvertible.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/Byte/BytesConvertible.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/BytesConvertible~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/BytesConvertible.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/Byte/Byte+Random.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Byte+Random.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/Byte/Byte+Random.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/Byte+Random~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Byte+Random.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/Byte/Bytes.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Bytes.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/Byte/Bytes.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/Bytes~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Bytes.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/Byte/Bytes+Base64.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Bytes+Base64.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/Byte/Bytes+Base64.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/Bytes+Base64~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/Bytes+Base64.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/Byte/BytesSlice+PatternMatching.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/BytesSlice+PatternMatching.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/Byte/BytesSlice+PatternMatching.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/BytesSlice+PatternMatching~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/BytesSlice+PatternMatching.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Core-1.0.0/Sources/Core/Byte/ByteAliases.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/ByteAliases.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/Core.build/Byte/ByteAliases.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/Core.build/ByteAliases~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/Core.build/ByteAliases.swiftdeps"
+  }
+}

@@ -1,0 +1,278 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "router"
+provides-nominal:
+provides-member:
+depends-top-level:
+- "setbuf"
+- "print"
+- "Log"
+- "Array"
+- "FloatLiteralType"
+- "getUsers"
+- "stdout"
+- "IntegerLiteralType"
+- "JSON"
+- "HeliumLogger"
+- "UnicodeScalarType"
+- "AssignmentPrecedence"
+- "Router"
+- "StringLiteralType"
+- "Kitura"
+- "router"
+depends-member:
+- ["Ps9AnyObject", "addHTTPServer"]
+- ["Ps9AnyObject", "get"]
+- ["Ps9AnyObject", "info"]
+- ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "logger"]
+- ["Ps9AnyObject", "run"]
+- ["Ps9AnyObject", "send"]
+- ["Ps9AnyObject", "status"]
+- ["Sa", "Element"]
+- ["Sa", "Iterator"]
+- ["Sa", "_Element"]
+- ["Sa", "deinit"]
+- ["Ps23BidirectionalCollection", "Element"]
+- ["Ps23BidirectionalCollection", "Iterator"]
+- ["Ps23BidirectionalCollection", "_Element"]
+- ["Ps22BidirectionalIndexable", "Element"]
+- ["Ps22BidirectionalIndexable", "Iterator"]
+- ["Ps22BidirectionalIndexable", "_Element"]
+- ["Ps10Collection", "Element"]
+- ["Ps10Collection", "Iterator"]
+- ["Ps10Collection", "_Element"]
+- ["Ps10Collection", "init"]
+- ["Ps10Comparable", "init"]
+- ["Ps28CustomDebugStringConvertible", "Element"]
+- ["Ps28CustomDebugStringConvertible", "Iterator"]
+- ["Ps28CustomDebugStringConvertible", "_Element"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps29CustomPlaygroundQuickLookable", "init"]
+- ["Ps17CustomReflectable", "Element"]
+- ["Ps17CustomReflectable", "Iterator"]
+- ["Ps17CustomReflectable", "_Element"]
+- ["Ps17CustomReflectable", "init"]
+- ["Ps23CustomStringConvertible", "Element"]
+- ["Ps23CustomStringConvertible", "Iterator"]
+- ["Ps23CustomStringConvertible", "_Element"]
+- ["Ps23CustomStringConvertible", "init"]
+- ["Vs10Dictionary", "deinit"]
+- ["Ps9Equatable", "OK"]
+- ["Ps9Equatable", "init"]
+- ["Ps25ExpressibleByArrayLiteral", "Element"]
+- ["Ps25ExpressibleByArrayLiteral", "Iterator"]
+- ["Ps25ExpressibleByArrayLiteral", "_Element"]
+- ["Ps25ExpressibleByArrayLiteral", "init"]
+- ["Ps27ExpressibleByBooleanLiteral", "init"]
+- ["Ps30ExpressibleByDictionaryLiteral", "init"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- ["Ps25ExpressibleByFloatLiteral", "init"]
+- ["Ps27ExpressibleByIntegerLiteral", "init"]
+- ["Ps23ExpressibleByNilLiteral", "init"]
+- ["Ps32ExpressibleByStringInterpolation", "init"]
+- ["Ps26ExpressibleByStringLiteral", "init"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- ["C9KituraNet10HTTPServer", "deinit"]
+- ["O9KituraNet14HTTPStatusCode", "OK"]
+- ["O9KituraNet14HTTPStatusCode", "deinit"]
+- ["Ps8Hashable", "OK"]
+- ["Ps8Hashable", "init"]
+- ["C12HeliumLogger12HeliumLogger", "deinit"]
+- ["C12HeliumLogger12HeliumLogger", "init"]
+- ["SQ", "deinit"]
+- ["Ps9Indexable", "Element"]
+- ["Ps9Indexable", "Iterator"]
+- ["Ps9Indexable", "_Element"]
+- ["Ps9Indexable", "init"]
+- ["Ps13IndexableBase", "Element"]
+- ["Ps13IndexableBase", "Iterator"]
+- ["Ps13IndexableBase", "_Element"]
+- ["Ps13IndexableBase", "init"]
+- ["Vs16IndexingIterator", "Element"]
+- ["Si", "deinit"]
+- ["Ps16IteratorProtocol", "Element"]
+- ["V10SwiftyJSON4JSON", "deinit"]
+- ["V10SwiftyJSON4JSON", "init"]
+- ["P10SwiftyJSON17JSONSubscriptType", "init"]
+- ["C6Kitura6Kitura", "addHTTPServer"]
+- ["C6Kitura6Kitura", "run"]
+- ["C9LoggerAPI3Log", "info"]
+- ["C9LoggerAPI3Log", "logger"]
+- ["P9LoggerAPI6Logger", "init"]
+- ["Ps25LosslessStringConvertible", "init"]
+- ["Ps10MirrorPath", "init"]
+- ["Ps17MutableCollection", "Element"]
+- ["Ps17MutableCollection", "Iterator"]
+- ["Ps17MutableCollection", "_Element"]
+- ["Ps16MutableIndexable", "Element"]
+- ["Ps16MutableIndexable", "Iterator"]
+- ["Ps16MutableIndexable", "_Element"]
+- ["Sq", "deinit"]
+- ["Ps22RandomAccessCollection", "Element"]
+- ["Ps22RandomAccessCollection", "Iterator"]
+- ["Ps22RandomAccessCollection", "_Element"]
+- ["Ps21RandomAccessIndexable", "Element"]
+- ["Ps21RandomAccessIndexable", "Iterator"]
+- ["Ps21RandomAccessIndexable", "_Element"]
+- ["Ps26RangeReplaceableCollection", "Element"]
+- ["Ps26RangeReplaceableCollection", "Iterator"]
+- ["Ps26RangeReplaceableCollection", "_Element"]
+- ["Ps25RangeReplaceableIndexable", "Element"]
+- ["Ps25RangeReplaceableIndexable", "Iterator"]
+- ["Ps25RangeReplaceableIndexable", "_Element"]
+- ["Ps16RawRepresentable", "OK"]
+- ["Ps16RawRepresentable", "init"]
+- ["C6Kitura6Router", "deinit"]
+- ["C6Kitura6Router", "get"]
+- ["C6Kitura6Router", "init"]
+- ["P6Kitura16RouterMiddleware", "get"]
+- ["P6Kitura16RouterMiddleware", "init"]
+- ["C6Kitura14RouterResponse", "deinit"]
+- ["C6Kitura14RouterResponse", "send"]
+- ["C6Kitura14RouterResponse", "status"]
+- ["Ps8Sequence", "Element"]
+- ["Ps8Sequence", "Iterator"]
+- ["Ps8Sequence", "_Element"]
+- ["Ps8Sequence", "init"]
+- ["P9KituraNet14ServerDelegate", "get"]
+- ["P9KituraNet14ServerDelegate", "init"]
+- ["SS", "deinit"]
+- ["SS", "init"]
+- ["Ps16TextOutputStream", "init"]
+- ["Ps20TextOutputStreamable", "init"]
+- ["Ps14_ArrayProtocol", "Element"]
+- ["Ps14_ArrayProtocol", "Iterator"]
+- ["Ps14_ArrayProtocol", "_Element"]
+- ["P10Foundation12_CFBridgable", "Element"]
+- ["P10Foundation12_CFBridgable", "Iterator"]
+- ["P10Foundation12_CFBridgable", "_Element"]
+- ["P10Foundation12_CFBridgable", "init"]
+- ["Ps24_DestructorSafeContainer", "Element"]
+- ["Ps24_DestructorSafeContainer", "Iterator"]
+- ["Ps24_DestructorSafeContainer", "_Element"]
+- ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- ["Ps9_Hashable", "OK"]
+- ["Ps9_Hashable", "init"]
+- ["P10Foundation12_NSBridgable", "Element"]
+- ["P10Foundation12_NSBridgable", "Iterator"]
+- ["P10Foundation12_NSBridgable", "_Element"]
+- ["P10Foundation12_NSBridgable", "init"]
+- ["P10Foundation17_ObjectBridgeable", "Element"]
+- ["P10Foundation17_ObjectBridgeable", "Iterator"]
+- ["P10Foundation17_ObjectBridgeable", "_Element"]
+- ["P10Foundation17_ObjectBridgeable", "init"]
+- ["P10Foundation21_ObjectTypeBridgeable", "Element"]
+- ["P10Foundation21_ObjectTypeBridgeable", "Iterator"]
+- ["P10Foundation21_ObjectTypeBridgeable", "_Element"]
+- ["P10Foundation21_ObjectTypeBridgeable", "init"]
+depends-nominal:
+- "Ps9AnyObject"
+- "Sa"
+- "Ps23BidirectionalCollection"
+- "Ps22BidirectionalIndexable"
+- "Ps10Collection"
+- "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Vs10Dictionary"
+- "Ps9Equatable"
+- "Ps25ExpressibleByArrayLiteral"
+- "Ps27ExpressibleByBooleanLiteral"
+- "Ps30ExpressibleByDictionaryLiteral"
+- "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- "Ps25ExpressibleByFloatLiteral"
+- "Ps27ExpressibleByIntegerLiteral"
+- "Ps23ExpressibleByNilLiteral"
+- "Ps32ExpressibleByStringInterpolation"
+- "Ps26ExpressibleByStringLiteral"
+- "Ps33ExpressibleByUnicodeScalarLiteral"
+- "C9KituraNet10HTTPServer"
+- "O9KituraNet14HTTPStatusCode"
+- "Ps8Hashable"
+- "C12HeliumLogger12HeliumLogger"
+- "SQ"
+- "Ps9Indexable"
+- "Ps13IndexableBase"
+- "Vs16IndexingIterator"
+- "Si"
+- "Ps16IteratorProtocol"
+- "V10SwiftyJSON4JSON"
+- "P10SwiftyJSON17JSONSubscriptType"
+- "C6Kitura6Kitura"
+- "C9LoggerAPI3Log"
+- "P9LoggerAPI6Logger"
+- "Ps25LosslessStringConvertible"
+- "Ps10MirrorPath"
+- "Ps17MutableCollection"
+- "Ps16MutableIndexable"
+- "Sq"
+- "Ps22RandomAccessCollection"
+- "Ps21RandomAccessIndexable"
+- "Ps26RangeReplaceableCollection"
+- "Ps25RangeReplaceableIndexable"
+- "Ps16RawRepresentable"
+- "C6Kitura6Router"
+- "P6Kitura16RouterMiddleware"
+- "C6Kitura14RouterResponse"
+- "Ps8Sequence"
+- "P9KituraNet14ServerDelegate"
+- "SS"
+- "Ps16TextOutputStream"
+- "Ps20TextOutputStreamable"
+- "Ps14_ArrayProtocol"
+- "P10Foundation12_CFBridgable"
+- "Ps24_DestructorSafeContainer"
+- "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- "Ps34_ExpressibleByBuiltinStringLiteral"
+- "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- "Ps9_Hashable"
+- "P10Foundation12_NSBridgable"
+- "P10Foundation17_ObjectBridgeable"
+- "P10Foundation21_ObjectTypeBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/Visibility.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/SwiftStdint.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/UnicodeShims.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/SwiftStddef.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/LibcShims.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RuntimeStubs.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RuntimeShims.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RefCount.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/HeapObject.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/GlobalObjects.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/FoundationShims.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/DispatchShims.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/module.modulemap"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/home/wasoh/wsAuth/.build/debug/SQLite.swiftmodule"
+- "/home/wasoh/wsAuth/.build/debug/SwiftyJSON.swiftmodule"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Foundation.swiftmodule"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/dispatch/module.modulemap"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
+- "/home/wasoh/wsAuth/.build/debug/HeliumLogger.swiftmodule"
+- "/home/wasoh/wsAuth/.build/debug/LoggerAPI.swiftmodule"
+- "/home/wasoh/wsAuth/.build/debug/Kitura.swiftmodule"
+- "/home/wasoh/wsAuth/.build/debug/KituraNet.swiftmodule"
+- "/home/wasoh/wsAuth/Packages/CEpoll-0.1.0/module.modulemap"
+- "/home/wasoh/wsAuth/Packages/OpenSSL-0.2.2/module.modulemap"
+- "/home/wasoh/wsAuth/.build/debug/CHTTPParser.build/module.modulemap"
+- "/home/wasoh/wsAuth/Packages/CEpoll-0.1.0/shim.h"
+- "/home/wasoh/wsAuth/Packages/CCurl-0.2.3/module.modulemap"
+- "/home/wasoh/wsAuth/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/http_parser.h"
+- "/home/wasoh/wsAuth/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/utils.h"
+- "/home/wasoh/wsAuth/.build/debug/SSLService.swiftmodule"
+- "/home/wasoh/wsAuth/.build/debug/Socket.swiftmodule"
+- "/home/wasoh/wsAuth/.build/debug/KituraTemplateEngine.swiftmodule"
+interface-hash: "1ecb128f8d4010653e4f0ba3700fa6a2"

@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/LoggerAPI.build/master.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/LoggerAPI-1.1.0/Sources/LoggerAPI/Logger.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/LoggerAPI.build/Logger.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/LoggerAPI.build/Logger.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/LoggerAPI.build/Logger~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/LoggerAPI.build/Logger.swiftdeps"
+  }
+}

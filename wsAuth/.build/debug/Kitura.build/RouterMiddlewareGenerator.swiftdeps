@@ -1,0 +1,75 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "RouterMiddlewareGenerator"
+provides-nominal:
+- "C6Kitura25RouterMiddlewareGenerator"
+provides-member:
+- ["C6Kitura25RouterMiddlewareGenerator", ""]
+depends-top-level:
+- "RouterRequest"
+- "RouterHandler"
+- "RouterMiddlewareGenerator"
+- "RouterMiddleware"
+- "AssignmentPrecedence"
+- "Void"
+- "RouterResponse"
+depends-member:
+- ["Ps9AnyObject", "handle"]
+- !private ["Ps9AnyObject", "innerHandler"]
+- ["Ps9AnyObject", ""]
+- ["P6Kitura16RouterMiddleware", "handle"]
+- !private ["P6Kitura16RouterMiddleware", "innerHandler"]
+- ["P6Kitura16RouterMiddleware", ""]
+- ["C6Kitura25RouterMiddlewareGenerator", "RouterHandler"]
+- ["C6Kitura25RouterMiddlewareGenerator", "RouterRequest"]
+- ["C6Kitura25RouterMiddlewareGenerator", "RouterResponse"]
+- ["C6Kitura25RouterMiddlewareGenerator", "Void"]
+- ["C6Kitura25RouterMiddlewareGenerator", "deinit"]
+- ["C6Kitura25RouterMiddlewareGenerator", "handle"]
+- ["C6Kitura25RouterMiddlewareGenerator", "init"]
+- !private ["C6Kitura25RouterMiddlewareGenerator", "innerHandler"]
+- ["C6Kitura13RouterRequest", "deinit"]
+- ["C6Kitura14RouterResponse", "deinit"]
+depends-nominal:
+- "Ps9AnyObject"
+- "P6Kitura16RouterMiddleware"
+- "C6Kitura25RouterMiddlewareGenerator"
+- "C6Kitura13RouterRequest"
+- "C6Kitura14RouterResponse"
+depends-dynamic-lookup:
+depends-external:
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/Visibility.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/SwiftStdint.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/UnicodeShims.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/SwiftStddef.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/LibcShims.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RuntimeStubs.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RuntimeShims.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RefCount.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/HeapObject.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/GlobalObjects.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/FoundationShims.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/DispatchShims.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/module.modulemap"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Foundation.swiftmodule"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/dispatch/module.modulemap"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
+- "/home/wasoh/wsAuth/.build/debug/LoggerAPI.swiftmodule"
+- "/home/wasoh/wsAuth/.build/debug/KituraNet.swiftmodule"
+- "/home/wasoh/wsAuth/Packages/CEpoll-0.1.0/module.modulemap"
+- "/home/wasoh/wsAuth/Packages/OpenSSL-0.2.2/module.modulemap"
+- "/home/wasoh/wsAuth/.build/debug/CHTTPParser.build/module.modulemap"
+- "/home/wasoh/wsAuth/Packages/CEpoll-0.1.0/shim.h"
+- "/home/wasoh/wsAuth/Packages/CCurl-0.2.3/module.modulemap"
+- "/home/wasoh/wsAuth/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/http_parser.h"
+- "/home/wasoh/wsAuth/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/utils.h"
+- "/home/wasoh/wsAuth/.build/debug/SSLService.swiftmodule"
+- "/home/wasoh/wsAuth/.build/debug/Socket.swiftmodule"
+- "/home/wasoh/wsAuth/.build/debug/KituraTemplateEngine.swiftmodule"
+- "/home/wasoh/wsAuth/.build/debug/SwiftyJSON.swiftmodule"
+interface-hash: "f342a21fee530afb02255350f315f1c5"

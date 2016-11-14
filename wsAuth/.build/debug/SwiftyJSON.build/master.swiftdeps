@@ -1,0 +1,6 @@
+version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
+options: "e48d0f600cb79608012646c968e89747"
+build_time: [532081288, 494997000]
+inputs:
+  "/home/wasoh/wsAuth/Packages/SwiftyJSON-15.0.0/Source/SwiftyJSON.swift": [532019925, 0]
+  "/home/wasoh/wsAuth/Packages/SwiftyJSON-15.0.0/Source/LclJSONSerialization.swift": [532019925, 0]

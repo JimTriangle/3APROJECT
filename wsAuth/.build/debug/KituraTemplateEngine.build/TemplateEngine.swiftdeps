@@ -1,0 +1,37 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "TemplateEngine"
+provides-nominal:
+- "P20KituraTemplateEngine14TemplateEngine"
+provides-member:
+- ["P20KituraTemplateEngine14TemplateEngine", ""]
+depends-top-level:
+- "TemplateEngine"
+- "String"
+depends-member:
+- ["P20KituraTemplateEngine14TemplateEngine", "String"]
+- ["P20KituraTemplateEngine14TemplateEngine", "fileExtension"]
+- ["P20KituraTemplateEngine14TemplateEngine", "render"]
+- ["P20KituraTemplateEngine14TemplateEngine", ""]
+depends-nominal:
+- "P20KituraTemplateEngine14TemplateEngine"
+depends-dynamic-lookup:
+depends-external:
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/Visibility.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/SwiftStdint.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/UnicodeShims.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/SwiftStddef.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/LibcShims.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RuntimeStubs.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RuntimeShims.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RefCount.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/HeapObject.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/GlobalObjects.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/FoundationShims.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/DispatchShims.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/module.modulemap"
+- "/home/wasoh/T\xE9l\xE9chargements/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "a1ddc7b6abcb0ea7d3072612688bda91"

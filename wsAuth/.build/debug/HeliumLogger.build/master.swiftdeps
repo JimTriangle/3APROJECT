@@ -1,0 +1,5 @@
+version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
+options: "377c9b06bcd1a604139dcddf62ffb9c4"
+build_time: [532081288, 765605000]
+inputs:
+  "/home/wasoh/wsAuth/Packages/HeliumLogger-1.1.0/Sources/HeliumLogger/HeliumLogger.swift": [532019934, 0]

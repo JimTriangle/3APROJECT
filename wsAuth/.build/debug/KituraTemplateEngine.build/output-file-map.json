@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/KituraTemplateEngine.build/master.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/Kitura-TemplateEngine-1.1.0/Sources/KituraTemplateEngine/TemplateEngine.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/KituraTemplateEngine.build/TemplateEngine.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/KituraTemplateEngine.build/TemplateEngine.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/KituraTemplateEngine.build/TemplateEngine~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/KituraTemplateEngine.build/TemplateEngine.swiftdeps"
+  }
+}

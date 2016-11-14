@@ -1,0 +1,17 @@
+{
+  "": {
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/SwiftyJSON.build/master.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/SwiftyJSON-15.0.0/Source/SwiftyJSON.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/SwiftyJSON.build/SwiftyJSON.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/SwiftyJSON.build/SwiftyJSON.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/SwiftyJSON.build/SwiftyJSON~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/SwiftyJSON.build/SwiftyJSON.swiftdeps"
+  },
+  "/home/wasoh/wsAuth/Packages/SwiftyJSON-15.0.0/Source/LclJSONSerialization.swift": {
+    "dependencies": "/home/wasoh/wsAuth/.build/debug/SwiftyJSON.build/LclJSONSerialization.d",
+    "object": "/home/wasoh/wsAuth/.build/debug/SwiftyJSON.build/LclJSONSerialization.swift.o",
+    "swiftmodule": "/home/wasoh/wsAuth/.build/debug/SwiftyJSON.build/LclJSONSerialization~partial.swiftmodule",
+    "swift-dependencies": "/home/wasoh/wsAuth/.build/debug/SwiftyJSON.build/LclJSONSerialization.swiftdeps"
+  }
+}

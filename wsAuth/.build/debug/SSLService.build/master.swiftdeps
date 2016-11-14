@@ -1,0 +1,5 @@
+version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
+options: "2bde5c1515e6ea10f865a8f8c0453b10"
+build_time: [532081290, 93134000]
+inputs:
+  "/home/wasoh/wsAuth/Packages/SSLService-0.11.53/Sources/SSLService.swift": [532019915, 0]

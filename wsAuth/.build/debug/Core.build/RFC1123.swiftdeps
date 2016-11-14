@@ -1,0 +1,217 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "RFC1123"
+provides-nominal:
+- "V4Core7RFC1123"
+provides-member:
+- ["V4Core7RFC1123", ""]
+- ["V10Foundation4Date", ""]
+- ["V10Foundation4Date", "rfc1123"]
+- ["V10Foundation4Date", "init"]
+depends-top-level:
+- "String"
+- !private "Locale"
+- "RFC1123"
+- "AssignmentPrecedence"
+- "DateFormatter"
+- !private "TimeZone"
+- !private "StringLiteralType"
+- "Date"
+depends-member:
+- !private ["Ps9AnyObject", "date"]
+- !private ["Ps9AnyObject", "dateFormat"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "locale"]
+- !private ["Ps9AnyObject", "string"]
+- !private ["Ps9AnyObject", "timeZone"]
+- !private ["P4Core16BytesConvertible", "init"]
+- !private ["P4Core18BytesInitializable", "init"]
+- !private ["P4Core18BytesRepresentable", "init"]
+- !private ["Ps10Comparable", "RFC1123"]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "RFC1123"]
+- !private ["Ps28CustomDebugStringConvertible", "date"]
+- !private ["Ps28CustomDebugStringConvertible", "dateFormat"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "locale"]
+- !private ["Ps28CustomDebugStringConvertible", "string"]
+- !private ["Ps28CustomDebugStringConvertible", "timeZone"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "RFC1123"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "RFC1123"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps23CustomStringConvertible", "RFC1123"]
+- !private ["Ps23CustomStringConvertible", "date"]
+- !private ["Ps23CustomStringConvertible", "dateFormat"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "locale"]
+- !private ["Ps23CustomStringConvertible", "string"]
+- !private ["Ps23CustomStringConvertible", "timeZone"]
+- !private ["V10Foundation4Date", "RFC1123"]
+- ["V10Foundation4Date", "String"]
+- ["V10Foundation4Date", "deinit"]
+- ["V10Foundation4Date", "init"]
+- ["V10Foundation4Date", "rfc1123"]
+- !private ["C10Foundation13DateFormatter", "date"]
+- !private ["C10Foundation13DateFormatter", "dateFormat"]
+- ["C10Foundation13DateFormatter", "deinit"]
+- !private ["C10Foundation13DateFormatter", "init"]
+- !private ["C10Foundation13DateFormatter", "locale"]
+- !private ["C10Foundation13DateFormatter", "string"]
+- !private ["C10Foundation13DateFormatter", "timeZone"]
+- !private ["Ps9Equatable", "RFC1123"]
+- !private ["Ps9Equatable", "date"]
+- !private ["Ps9Equatable", "dateFormat"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "locale"]
+- !private ["Ps9Equatable", "string"]
+- !private ["Ps9Equatable", "timeZone"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps32ExpressibleByStringInterpolation", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["C10Foundation9Formatter", "date"]
+- !private ["C10Foundation9Formatter", "dateFormat"]
+- !private ["C10Foundation9Formatter", "init"]
+- !private ["C10Foundation9Formatter", "locale"]
+- !private ["C10Foundation9Formatter", "string"]
+- !private ["C10Foundation9Formatter", "timeZone"]
+- !private ["Ps8Hashable", "RFC1123"]
+- !private ["Ps8Hashable", "date"]
+- !private ["Ps8Hashable", "dateFormat"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "locale"]
+- !private ["Ps8Hashable", "string"]
+- !private ["Ps8Hashable", "timeZone"]
+- !private ["SQ", "deinit"]
+- ["V10Foundation6Locale", "deinit"]
+- !private ["V10Foundation6Locale", "init"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "init"]
+- !private ["P10Foundation8NSCoding", "date"]
+- !private ["P10Foundation8NSCoding", "dateFormat"]
+- !private ["P10Foundation8NSCoding", "init"]
+- !private ["P10Foundation8NSCoding", "locale"]
+- !private ["P10Foundation8NSCoding", "string"]
+- !private ["P10Foundation8NSCoding", "timeZone"]
+- !private ["P10Foundation9NSCopying", "date"]
+- !private ["P10Foundation9NSCopying", "dateFormat"]
+- !private ["P10Foundation9NSCopying", "init"]
+- !private ["P10Foundation9NSCopying", "locale"]
+- !private ["P10Foundation9NSCopying", "string"]
+- !private ["P10Foundation9NSCopying", "timeZone"]
+- !private ["C10Foundation8NSObject", "date"]
+- !private ["C10Foundation8NSObject", "dateFormat"]
+- !private ["C10Foundation8NSObject", "init"]
+- !private ["C10Foundation8NSObject", "locale"]
+- !private ["C10Foundation8NSObject", "string"]
+- !private ["C10Foundation8NSObject", "timeZone"]
+- !private ["P10Foundation16NSObjectProtocol", "date"]
+- !private ["P10Foundation16NSObjectProtocol", "dateFormat"]
+- !private ["P10Foundation16NSObjectProtocol", "init"]
+- !private ["P10Foundation16NSObjectProtocol", "locale"]
+- !private ["P10Foundation16NSObjectProtocol", "string"]
+- !private ["P10Foundation16NSObjectProtocol", "timeZone"]
+- ["Sq", "deinit"]
+- ["V4Core7RFC1123", "DateFormatter"]
+- !private ["V4Core7RFC1123", "Locale"]
+- ["V4Core7RFC1123", "RFC1123"]
+- !private ["V4Core7RFC1123", "TimeZone"]
+- ["V4Core7RFC1123", "deinit"]
+- ["V4Core7RFC1123", "formatter"]
+- ["V4Core7RFC1123", "init"]
+- ["V4Core7RFC1123", "shared"]
+- !private ["P10Foundation20ReferenceConvertible", "RFC1123"]
+- !private ["P10Foundation20ReferenceConvertible", "init"]
+- ["SS", "deinit"]
+- !private ["SS", "init"]
+- !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "init"]
+- !private ["V10Foundation8TimeZone", "init"]
+- !private ["P10Foundation12_CFBridgable", "RFC1123"]
+- !private ["P10Foundation12_CFBridgable", "init"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps9_Hashable", "RFC1123"]
+- !private ["Ps9_Hashable", "date"]
+- !private ["Ps9_Hashable", "dateFormat"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "locale"]
+- !private ["Ps9_Hashable", "string"]
+- !private ["Ps9_Hashable", "timeZone"]
+- !private ["P10Foundation12_NSBridgable", "RFC1123"]
+- !private ["P10Foundation12_NSBridgable", "init"]
+- !private ["P10Foundation17_ObjectBridgeable", "RFC1123"]
+- !private ["P10Foundation17_ObjectBridgeable", "init"]
+- !private ["P10Foundation21_ObjectTypeBridgeable", "RFC1123"]
+- !private ["P10Foundation21_ObjectTypeBridgeable", "init"]
+depends-nominal:
+- !private "Ps9AnyObject"
+- !private "P4Core16BytesConvertible"
+- !private "P4Core18BytesInitializable"
+- !private "P4Core18BytesRepresentable"
+- !private "Ps10Comparable"
+- !private "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- !private "Ps23CustomStringConvertible"
+- "V10Foundation4Date"
+- "C10Foundation13DateFormatter"
+- !private "Ps9Equatable"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps32ExpressibleByStringInterpolation"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- !private "C10Foundation9Formatter"
+- !private "Ps8Hashable"
+- !private "SQ"
+- "V10Foundation6Locale"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- !private "P10Foundation8NSCoding"
+- !private "P10Foundation9NSCopying"
+- !private "C10Foundation8NSObject"
+- !private "P10Foundation16NSObjectProtocol"
+- "Sq"
+- "V4Core7RFC1123"
+- !private "P10Foundation20ReferenceConvertible"
+- "SS"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
+- !private "V10Foundation8TimeZone"
+- !private "P10Foundation12_CFBridgable"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps9_Hashable"
+- !private "P10Foundation12_NSBridgable"
+- !private "P10Foundation17_ObjectBridgeable"
+- !private "P10Foundation21_ObjectTypeBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/Visibility.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/SwiftStdint.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/UnicodeShims.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/SwiftStddef.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/LibcShims.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RuntimeStubs.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RuntimeShims.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RefCount.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/HeapObject.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/GlobalObjects.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/FoundationShims.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/DispatchShims.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/module.modulemap"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/dispatch/module.modulemap"
+- "/home/wasoh/wsAuth/.build/debug/libc.swiftmodule"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
+- "/home/wasoh/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Foundation.swiftmodule"
+interface-hash: "f6c8d8420b5c149e52ff9c56cbdd92ee"

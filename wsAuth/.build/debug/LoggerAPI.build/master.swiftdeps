@@ -1,0 +1,5 @@
+version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
+options: "1c927d9f7fa67e4b687be06b6e5fad91"
+build_time: [532081288, 500965000]
+inputs:
+  "/home/wasoh/wsAuth/Packages/LoggerAPI-1.1.0/Sources/LoggerAPI/Logger.swift": [532019901, 0]
