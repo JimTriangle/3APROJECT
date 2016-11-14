@@ -7,23 +7,29 @@ from Tkinter import *
 reload(sys) # ugly hack to access sys.setdefaultencoding
 sys.setdefaultencoding('utf-8')
 
-
-
+webServiceAddress = 'http://127.0.0.1:3000'
+topicRoute = '/alert/topic/'
+geolocRoute = '/alert/geo/'
 
 class topic_subcriber_thread(Thread):
    
-    def __init__(self, topicNameAsk):
+    def __init__(self, topicNameAsk, latitude, longitude):
         Thread.__init__(self)
         self.topicNameAsk = topicNameAsk
+        self.latitude = latitude
+        self.longitude = longitude
+        
 
     def run(self):
+		############# requete ajax to web service ############# 		
+		response = requests.get(webServiceAddress + topicRoute + '?topic=' + self.topicNameAsk + '&latitude=' + self.latitude + '&longitude=' + self.longitude)	
+		WSResp = response.json()
+				
 		
-			
-		############# requete ajax ############# 
-		param = {'topicName': self.topicNameAsk}
-		channelNameResp = requests.get('http://127.0.0.1:3000/subChannel/topic', param)
+		############# requete ajax to pubsub web service #############			
+		channelNameResp = requests.get(WSResp['subscribeRoute'] + '?topicName=' + WSResp['data']['topic'])	# ajouter plus tard lat et lon et corriger aussi cote server	
+		print "### TOPIC ASK : " +  self.topicNameAsk + " - CHANNEL NAME : " + channelNameResp.text + " ### "
 		
-		print "### TOPIC ASK : " +  self.topicNameAsk + " - CHANNEL NAME : " + channelNameResp.text + "### "
 		############# redis client ############# 
 		redisClient = redis.StrictRedis(host='localhost', port=6379, db=0)
 		sub = redisClient.pubsub()
@@ -38,25 +44,28 @@ class topic_subcriber_thread(Thread):
 
 class geoloc_subcriber_thread(Thread):
    
-    def __init__(self, latitude, longitude, radius):
+    def __init__(self, latitude, longitude, perimeter):
         Thread.__init__(self)
         self.latitude = latitude
         self.longitude = longitude
-        self.radius = radius
+        self.perimeter = perimeter
 
-    def run(self):
-		
+    def run(self):		
 			
-		############# requete ajax ############# 
-		param = {
-					'lat' : self.latitude,
-					'lon' : self.longitude,
-					'radius' : self.radius
-				}
-				
-		channelNameResp = requests.get('http://127.0.0.1:3000/subChannel/geoloc', param)
+		############# requete ajax to web service ############# 		
+		response = requests.get(webServiceAddress + geolocRoute + '?latitude=' + self.latitude + '&longitude=' + self.longitude + '&perimeter=' + self.perimeter)	
+		WSResp = response.json()				
 		
-		print "###GEOLOC ASK : lat = " +  repr(self.latitude) + ", lon = " + repr(self.longitude) + " - CHANNEL NAME : " + channelNameResp.text + "### "
+		############# requete ajax to pubsub web service #############	
+		latitude = WSResp['data']['geolocation']['latitude']
+		longitude = WSResp['data']['geolocation']['longitude']
+		perimeter = WSResp['data']['perimeter']
+		
+		param = '{latitude : ' + latitude + ', longitude :' + longitude + ', perimeter:' + perimeter + '}'
+
+		channelNameResp = requests.get(WSResp['subscribeRoute'], param)	# ajouter plus tard lat et lon et corriger aussi cote server		
+		print "###GEOLOC ASK : lat = " +  latitude + ", lon = " + longitude + ", perimeter : " + perimeter + " - CHANNEL NAME : " + channelNameResp.text + " ### "
+		
 		############# redis client ############# 
 		redisClient = redis.StrictRedis(host='localhost', port=6379, db=0)
 		sub = redisClient.pubsub()
@@ -65,11 +74,52 @@ class geoloc_subcriber_thread(Thread):
 		while True:
 			message = sub.get_message()
 			if message:
-				print "### MESSAGE ON GEOLOC : " +  repr(self.latitude) + ", lon = " + repr(self.longitude) + " >>> %s ###" % message['data']
+				print "### MESSAGE ON GEOLOC : " +  latitude + ", lon = " + longitude + " >>> %s ###" % message['data']
 				time.sleep(1)
 				
-#subThread = topic_subcriber_thread("antoine")
+#subThread = topic_subcriber_thread("antoine", "", "")
 #subThread.start()
 
 subThread2 = geoloc_subcriber_thread('0', '0', '2');
 subThread2.start()
+
+"""
+AlertChannelRoutes = {
+					'subscribeRoute': 'a subscribeRoute',					 
+					'unsubscribeRoute':	'a unsubscribeRoute',					 
+					'data': {
+							'topic': 'topic',								 
+							'date':	'date',						 
+							'geolocation': { 
+											'latitude': '56',
+											'longitude': '45'
+										
+											},	
+							'popularity': 'popular'	
+									
+					}
+					
+}
+
+print AlertChannelRoutes['data']['topic']
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -58,3 +58,87 @@ topics.forEach(function(thisTopics) {
 
 
 });
+
+
+/***************************************************/
+
+// verify if a channel exists for a defined geoloc 
+function verifyIfChannelExistG(jsonGeolocAndRadius) {
+	
+	var lat, latToVerify, lon, lonToVerify, radius, channelName, deltaX, deltaY, jsonGeolocObject;	
+	var jsonGeolocResponse = {};
+	
+	// extract json lon and lat data from jsonGeolocAndRadius
+	var geolocs = Object.keys(jsonGeolocAndRadius);
+	geolocs.forEach(function(currentData) {				
+						
+		if (currentData == 'lat'){			
+			latToVerify = jsonGeolocAndRadius[currentData];
+		}
+		
+		if (currentData == 'lon'){
+			lonToVerify = jsonGeolocAndRadius[currentData];
+		}
+		
+		else {
+			radius = jsonGeolocAndRadius[currentData];
+		}
+	});
+	
+    
+    // verifier que channel geo existe pour la geoloc demandée	
+	var geoData = Object.keys(jsonGeoloc);	
+	geoData.forEach(function(data) {
+		var items = Object.keys(jsonGeoloc[data]);
+		items.forEach(function(item) {
+			
+			
+			if (item == 'lat'){			
+				lat = jsonGeoloc[data][item];
+			}
+			
+			if (item == 'lon'){
+				lon = jsonGeoloc[data][item];
+			}
+					
+			if  (item == 'channel'){
+				channelName = jsonGeoloc[data][item];
+			}			
+			
+			deltaX = Math.abs(lat - latToVerify);
+			deltaY = Math.abs(lonToVerify - lon);						
+			 
+		});
+	
+		var radiusFind = Math.sqrt(Math.pow(deltaX,2) + Math.pow(deltaY,2));		
+			
+		if (radiusFind <= radius){
+			jsonGeolocObject.push(jsonGeoloc[data]); // 
+			
+		} 
+	});
+	
+	return 3;
+}
+
+
+
+/*********************************************************/
+
+			//console.log("push : " + JSON.stringify(jsonGeolocAndRadius));
+			//jsonGeolocResponse.push(jsonGeolocAndRadius);
+			//console.log("size : " + JSON.stringify(Object.keys(jsonGeoloc).length));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
