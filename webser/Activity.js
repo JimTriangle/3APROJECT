@@ -43,7 +43,7 @@ Activity.prototype.hydrateFromDB = function hydrateFromDB(data)
     }
 }
 
-Activity.prototype.hydrateFromJSON = hydrateFromJSON(JSONData)
+Activity.prototype.hydrateFromJSON = function hydrateFromJSON(JSONData)
 {
     var object = JSON.parse(JSONData);
     this.topic = object.topic;
@@ -106,7 +106,7 @@ Activity.prototype.getPopularity = function getPopularity()
 
 Activity.prototype.setPerimeter = function setPerimeter(_perimeter)
 {
-    this.perimeter = perimeter;
+    this.perimeter = _perimeter;
 }
 
 Activity.prototype.getPerimeter = function getPerimeter()
