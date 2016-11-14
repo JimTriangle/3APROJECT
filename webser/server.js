@@ -68,7 +68,7 @@ app.get('/alert/geo', function (req, res)
         res.json({"error" : "required parameters missing"});
     }
 
-    var subscribeRoute = "localhost:3000/subChannel/geopos";
+    var subscribeRoute = "localhost:3000/subChannel/geoloc";
     var unsubscribeRoute = "";
     var newActivity = new Activity();
     newActivity.setLatitude(latitude);
