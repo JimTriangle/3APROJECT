@@ -7,7 +7,7 @@ from Tkinter import *
 reload(sys) # ugly hack to access sys.setdefaultencoding
 sys.setdefaultencoding('utf-8')
 
-webServiceAddress = 'http://127.0.0.1:3000'
+webServiceAddress = 'http://127.0.0.1:8090'
 topicRoute = '/alert/topic/'
 geolocRoute = '/alert/geo/'
 
