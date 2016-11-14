@@ -52,54 +52,57 @@ var app = express();
 
 app.get('/', function (req, res)
 {
-  res.send('Hello World!');
+    res.send('Hello World!');
 });
 
 app.get('/alert/geo', function (req, res)
 {
-  var latitude = req.query.latitude != undefined ? req.query.latitude : null;
-  var longitude = req.query.longitude != undefined ? req.query.longitude : null;
-  var perimeter = req.query.perimeter != undefined ? req.query.perimeter : null;
+    var latitude = req.query.latitude != undefined ? req.query.latitude : null;
+    var longitude = req.query.longitude != undefined ? req.query.longitude : null;
+    var perimeter = req.query.perimeter != undefined ? req.query.perimeter : null;
 
-  if(longitude == null || latitude == null)
-  {
-    res.json({"error" : "required parameters missing"});
-  }
+    if(longitude == null || latitude == null)
+    {
+      res.json({"error" : "required parameters missing"});
+    }
 
-  var routeAnswer = "/alert?latitude=" + latitude + "&longitude=" + longitude;
-  if(perimeter != null)
-  {
-    routeAnswer += "&perimeter=" + perimeter;
-  }
-  res.json({"route" : routeAnswer});
+    var subscribeRoute = "localhost:3000/subChannel/geopos";
+    var unsubscribeRoute = "";
+    var newActivity = new Activity();
+    newActivity.setLatitude(latitude);
+    newActivity.setLongitude(longitude);
+    newActivity.setPerimeter(perimeter != null ? perimeter : 0);
+    var answer = {};
+    answer.subscribeRoute = subscribeRoute;
+    answer.unsubscribeRoute = unsubscribeRoute;
+    answer.data = newActivity;
+    res.json(answer);
 });
 
 app.get('/alert/topic', function (req, res)
 {
-  var topic = req.query.topic != undefined ? req.query.topic : null;
-  var latitude = req.query.latitude != undefined ? req.query.latitude : null;
-  var longitude = req.query.longitude != undefined ? req.query.longitude : null;
-  var perimeter = req.query.perimeter != undefined ? req.query.perimeter : null;
+    var topic = req.query.topic != undefined ? req.query.topic : null;
+    var latitude = req.query.latitude != undefined ? req.query.latitude : null;
+    var longitude = req.query.longitude != undefined ? req.query.longitude : null;
+    var perimeter = req.query.perimeter != undefined ? req.query.perimeter : null;
 
-  if(topic == null)
-  {
-    res.json({"error" : "required parameters missing"});
-  }
+    if(topic == null)
+    {
+        res.json({"error" : "required parameters missing"});
+    }
 
-  var routeAnswer = "/alert?topic=" + topic;
-  if(latitude != null)
-  {
-    routeAnswer += "&latitude=" + latitude;
-  }
-  if(longitude != null)
-  {
-    routeAnswer += "&longitude=" + longitude;
-  }
-  if(perimeter != null)
-  {
-    routeAnswer += "&perimeter=" + perimeter;
-  }
-  res.json({"route" : routeAnswer});
+    var subscribeRoute = "localhost:3000/subChannel/topic";
+    var unsubscribeRoute = "";
+    var newActivity = new Activity();
+    newActivity.setTopic(topic);
+    newActivity.setLatitude(latitude != null ? latitude : 0);
+    newActivity.setLongitude(longitude != null ? longitude : 0);
+    newActivity.setPerimeter(perimeter != null ? perimeter : 0);
+    var answer = {};
+    answer.subscribeRoute = subscribeRoute;
+    answer.unsubscribeRoute = unsubscribeRoute;
+    answer.data = newActivity;
+    res.json(answer);
 });
 
 app.get("/user/:token", function(req, res)
