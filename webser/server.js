@@ -124,7 +124,7 @@ app.get("/user/:token", function(req, res)
             {
               client.hgetall(reply[key_activities], function(err, reply2)
               {
-                  var activity = [];
+                  var activity = {};
                   fillActivityTable(reply2, activity);
                   activities.push(activity);
                   resolve2(true);
@@ -137,7 +137,13 @@ app.get("/user/:token", function(req, res)
       });
       promises1.push(promise);
     }
-  Promise.all(promises1).then(function() { console.log(activities); res.json(activities);});
+  Promise.all(promises1).then(function()
+  {
+    console.log(activities);
+    console.log(JSON.stringify(activities));
+    console.log(activities == Array);
+    res.send(activities);
+  });
 });
 
 app.get("/geo", function(req, res)
@@ -174,7 +180,7 @@ app.get("/geo", function(req, res)
           {
             client.hgetall(reply[key_activities], function(err, reply2)
             {
-                var activity = [];
+                var activity = {};
                 fillActivityTable(reply2, activity);
                 activity["geoposition"]["latitude"] = latitude;
                 activity["geoposition"]["longitude"] = longitude;
@@ -225,7 +231,7 @@ app.get("/topic", function(req, res)
           {
             client.hgetall(reply[key_activities], function(err, reply2)
             {
-                var activity = [];
+                var activity = {};
                 fillActivityTable(reply2, activity);
                 activity["topic"] = topic;
                 // Trier par localisation si précisé
@@ -261,23 +267,22 @@ app.listen(8090, function () {
 
 function fillActivityTable(data, table)
 {
-  table['geoposition'] = [];
   if(data['topic'] != undefined)
   {
-    table['topic'] = data['topic'];
+    table.topic = data['topic'];
   }
 
   if(data['date'] != undefined)
   {
-    table['date'] = data['date'];
+    table.date = data['date'];
   }
 
-  table['geoposition'] = [];
+  table.geoposition = {};
   if(data['geoposition'] != undefined)
   {
-    table['geoposition']['latitude'] = data['geoposition'].split(",")[0];
-    table['geoposition']['longitude']= data['geoposition'].split(",")[1];
+    table.geoposition.latitude = data['geoposition'].split(",")[0];
+    table.geoposition.longitude = data['geoposition'].split(",")[1];
   }
 
-  table['popularity'] = 1;
+  table.popularity = 1;
 }
