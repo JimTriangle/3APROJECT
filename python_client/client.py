@@ -57,8 +57,8 @@ class geoloc_subcriber_thread(Thread):
 		WSResp = response.json()				
 		
 		############# requete ajax to pubsub web service #############	
-		latitude = WSResp['data']['geolocation']['latitude']
-		longitude = WSResp['data']['geolocation']['longitude']
+		latitude = WSResp['data']['geoposition']['latitude']
+		longitude = WSResp['data']['geoposition']['longitude']
 		perimeter = WSResp['data']['perimeter']
 		
 		param = '{latitude : ' + latitude + ', longitude :' + longitude + ', perimeter:' + perimeter + '}'
@@ -90,7 +90,7 @@ AlertChannelRoutes = {
 					'data': {
 							'topic': 'topic',								 
 							'date':	'date',						 
-							'geolocation': { 
+							'geoposition': { 
 											'latitude': '56',
 											'longitude': '45'
 										
