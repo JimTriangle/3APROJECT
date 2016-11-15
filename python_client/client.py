@@ -85,10 +85,10 @@ class test_web_service_thread(Thread):
 
     def run(self):	
 		print 'Le thread commence ...'
-		post = {'topic': 'myTopic',	'date':	'date',	'geoposition': { 'latitude': '56', 'longitude': '45'}, 'popularity': 'popular',	'perimeter': '20'}
+		data = {'topic': 'myTopic',	'date':	'date',	'geoposition': { 'latitude': '56', 'longitude': '45'}, 'popularity': 'popular',	'perimeter': '20'}
 		route = '/topic'
 		token = '/?token=123456789'
-		channelNameResp = requests.post(webServiceAddress + route + token, post)
+		channelNameResp = requests.post(webServiceAddress + route + token, params = data)
 				
 
 			
