@@ -5,11 +5,19 @@ var querystring = require('querystring');
 var express = require('express');
 var app = express();
 
+var bodyParser = require('body-parser');
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+
 var random_name = require('node-random-name');
 
 // connxion to redis server
-var redis = require("redis")
-var publisher = redis.createClient()
+var redis = require("redis");
+
+/* TEST LOCAL - TEST GLOBAL */
+//var publisher = redis.createClient();
+var publisher = redis.createClient(6379, 'serveurRedis');
+
 
 
 // channel list
@@ -182,7 +190,7 @@ app.get('/newPost', function (req, res) {
 app.get('/alert/geo', function (req, res) {
 
 	var AlertChannelRoutes = {
-						'subscribeRoute': 'http://127.0.0.1:3000/subChannel/geoloc',					 
+						'subscribeRoute': 'http://127.0.0.1:3020/subChannel/geoloc',					 
 						'unsubscribeRoute':	'/unsubChannel/topic',					 
 						'data': {
 								'topic': 'antoine',								 
@@ -205,15 +213,13 @@ app.get('/alert/geo', function (req, res) {
 /* WEB SERVICE POST SIMULATION  */
 app.post('/topic', function (req, res) {
 	
-	
-	console.log('params : ' + req.params['topic']);
-	
-	
+	console.log(req.body.topic);
+	res.send("OK");
 });
 
 
 
-app.listen(3000, function () {
+app.listen(3020, function () {
   console.log('serveur en marche ...');
 });
 

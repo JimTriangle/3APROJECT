@@ -7,7 +7,8 @@ from Tkinter import *
 reload(sys) # ugly hack to access sys.setdefaultencoding
 sys.setdefaultencoding('utf-8')
 
-webServiceAddress = 'http://127.0.0.1:3000'
+#webServiceAddress = 'http://127.0.0.1:3020'
+webServiceAddress = 'http://127.0.0.1:3010'
 topicRoute = '/alert/topic/'
 geolocRoute = '/alert/geo/'
 
@@ -88,8 +89,8 @@ class test_web_service_thread(Thread):
 		data = {'topic': 'myTopic',	'date':	'date',	'geoposition': { 'latitude': '56', 'longitude': '45'}, 'popularity': 'popular',	'perimeter': '20'}
 		route = '/topic'
 		token = '/?token=123456789'
-		channelNameResp = requests.post(webServiceAddress + route + token, params = data)
-				
+		channelNameResp = requests.post(webServiceAddress + route + token, data)
+		print channelNameResp.text	
 
 			
 testWebServiceThread = test_web_service_thread();
