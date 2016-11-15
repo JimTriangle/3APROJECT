@@ -117,46 +117,103 @@ app.get('/alert/topic', function (req, res)
 // Manque validité token + liste des tokens
 app.get("/user/:token", function(req, res)
 {
-    var tokens = ["3EAB547"];
+    var tokens = [];
     tokens.push(req.params.token);
-    // Envoyer un get au serveur authentification pour faire valider le token userToken
-    // Envoyer un get au serveur authentification pour obtenir la liste des tokens d'un utilisateur en fonction du token actuel
-    var activities = [];
-    var keyPromises = [];
-    for (var iToken = 0; iToken < tokens.length; ++iToken)
-    {
-        var key_db = "activity:token:" + tokens[iToken] + ":*";
-        var keyPromise = new Promise(function(keyResolve, keyReject)
-        {
-            client.keys(key_db, function(keyErr, keyReply)
-            {
-                var getPromises = [];
-                for (var key_activities in keyReply)
-                {
-                    var getPromise = new Promise(function(getResolve, getReject)
-                    {
-                        client.hgetall(keyReply[key_activities], function(getErr, getReply)
-                        {
-                            var newActivity = new Activity();
-                            newActivity.hydrateFromDB(getReply);
-                            activities.push(newActivity);
-                            getResolve(true);
-                        });
-                    });
-                    getPromises.push(getPromise);
-                }
-                Promise.all(getPromises).then(function() {keyResolve(true);}, function() {keyReject(true);});
-            });
-        });
-        keyPromises.push(keyPromise);
-    }
-    Promise.all(keyPromises).then(function()
-    {
-        res.send(activities);
-    }, function()
-    {
-        res.json({"error" : "required parameters missing"});
-    });
+
+    /************** CODE ANTOINE ******************************************/       
+	/************** PROMMESSE 1 : CHECK SI TOKEN VALIDE********************/	
+	
+	var getPromise1 = new Promise(function(resolve1, reject1) {
+		var body1 = {'token' : req.query.token};    
+		var options1 = {hostname: 'localhost',port: '3030',path: '/checkToken', method: 'GET', json:true};		
+		request(options, function(error1, response1, body1){		
+			if(error1 ||body1.query.reponse == 'ko') reject1();			
+			else resolve1();	
+		});		
+	});	
+	
+	getPromise1.then(function(){
+		
+		/*************** Token OK !!! **************************/
+		/************** PROMMESSE 2 : GET LISTE TOKENS UTILISATEUR ********/			
+		
+		var getPromise2 = new Promise(function(resolve2, reject2) {
+			var body2 = {'token' : req.query.token};    
+			var options2 = {hostname: 'localhost',port: '3030',path: '/getTokens', method: 'GET', json:true};			
+			request(options, function(error2, response2, body2){			
+				if(error2 || body2.query.reponse == 'ko') reject2();			
+				else resolve2();	
+			});	
+		});	
+			
+		getPromise2.then(function() {			
+			
+			/*************** LISTE TOKENS UTILISATEUR BIEN RECUE !!! **************************/
+			
+			for (var token in body.tokens){
+				tokens.push(token);			
+			}
+						
+			/*************** CODE LAURA ****************************/
+
+			// Envoyer un get au serveur authentification pour obtenir la liste des tokens d'un utilisateur en fonction du token actuel
+			var activities = [];
+			var keyPromises = [];
+			for (var iToken = 0; iToken < tokens.length; ++iToken)
+			{
+				var key_db = "activity:token:" + tokens[iToken] + ":*";
+				var keyPromise = new Promise(function(keyResolve, keyReject)
+				{
+					client.keys(key_db, function(keyErr, keyReply)
+					{
+						var getPromises = [];
+						for (var key_activities in keyReply)
+						{
+							var getPromise = new Promise(function(getResolve, getReject)
+							{
+								client.hgetall(keyReply[key_activities], function(getErr, getReply)
+								{
+									var newActivity = new Activity();
+									newActivity.hydrateFromDB(getReply);
+									activities.push(newActivity);
+									getResolve(true);
+								});
+							});
+							getPromises.push(getPromise);
+						}
+						Promise.all(getPromises).then(function() {keyResolve(true);}, function() {keyReject(true);});
+					});
+				});
+				keyPromises.push(keyPromise);
+			}
+			Promise.all(keyPromises).then(function()
+			{
+				res.send(activities);
+			}, function()
+			{
+				res.json({"error" : "required parameters missing"});
+			});	
+			
+		/*************** LISTE TOKENS KO !!! *******************/ 
+		/*************** CODE ANTOINE **************************/ 		
+	
+		}, function()
+		{
+			res.json({"error" : "required parameters missing"});
+		});	
+
+		/*************** TOKENS KO !!! ************************/ 
+
+		
+	}, function()
+	{
+		res.json({"error" : "required parameters missing"});
+	});			
+	
+		
+
+		
+
 });
 
 
@@ -166,53 +223,79 @@ app.get("/geo", function(req, res)
 {
     var rejection = false;
     var userToken = req.query.token != undefined ? req.query.token : null;
-    // Envoyer un get au serveur authentification pour faire valider le token userToken
-    var latitude = req.query.latitude != undefined ? req.query.latitude : null;
-    var longitude = req.query.longitude != undefined ? req.query.longitude : null;
-    var perimeter = req.query.perimeter != undefined ? req.query.perimeter : null;
-    var time = req.query.time != undefined ? req.query.time : null;
-    if(userToken == null || latitude == null || longitude == null)
-    {
-        rejection = true;
-    }
-    var activities = [];
-    var keyPromise = new Promise(function(keyResolve, keyReject)
-    {
-        if(rejection)
-        {
-            keyReject(true);
-        }
-        var key_db = "activity:geoposition:" + latitude + ":" + longitude + ":*";
-        client.keys(key_db, function(keyErr, keyReply)
-        {
-            var getPromises = [];
-            for (var key_activities in keyReply)
-            {
-                var getPromise = new Promise(function(getResolve, getReject)
-                {
-                    client.hgetall(keyReply[key_activities], function(getErr, getReply)
-                    {
-                        var newActivity = new Activity();
-                        newActivity.hydrateFromDB(getReply);
-                        newActivity.setLatitude(latitude);
-                        newActivity.setLongitude(longitude);
-                        activities.push(newActivity);
-                        getResolve(true);
-                    });
-                });
-                getPromises.push(getPromise);
-            }
-            Promise.all(getPromises).then(function() {keyResolve(true);}, function(){ keyReject(true);});
-        });
-    });
-    keyPromise.then(function()
-    {
-        console.log(activities);
-        res.json(activities);
+    
+    /************** CODE ANTOINE ******************************************/
+
+	var getPromise1 = new Promise(function(resolve, reject) {
+		var body = {'token' : req.query.token};    
+		var options = {hostname: 'localhost',port: '3030',path: '/checkToken', method: 'GET', json:true};
+		
+		/************ GET /checkToken *************************************/
+		request(options, function(error, response, body){
+		
+			if(error || body.query.reponse == 'ko') reject();			
+			else resolve();	
+		});		
+	});	
+		
+	getPromise1.then(function() {
+		
+		/*************** Token OK !!! **************************/
+		/*************** CODE LAURA ****************************/
+		var latitude = req.query.latitude != undefined ? req.query.latitude : null;
+		var longitude = req.query.longitude != undefined ? req.query.longitude : null;
+		var perimeter = req.query.perimeter != undefined ? req.query.perimeter : null;
+		var time = req.query.time != undefined ? req.query.time : null;
+		if(userToken == null || latitude == null || longitude == null)
+		{
+			rejection = true;
+		}
+		var activities = [];
+		var keyPromise = new Promise(function(keyResolve, keyReject)
+		{
+			if(rejection)
+			{
+				keyReject(true);
+			}
+			var key_db = "activity:geoposition:" + latitude + ":" + longitude + ":*";
+			client.keys(key_db, function(keyErr, keyReply)
+			{
+				var getPromises = [];
+				for (var key_activities in keyReply)
+				{
+					var getPromise = new Promise(function(getResolve, getReject)
+					{
+						client.hgetall(keyReply[key_activities], function(getErr, getReply)
+						{
+							var newActivity = new Activity();
+							newActivity.hydrateFromDB(getReply);
+							newActivity.setLatitude(latitude);
+							newActivity.setLongitude(longitude);
+							activities.push(newActivity);
+							getResolve(true);
+						});
+					});
+					getPromises.push(getPromise);
+				}
+				Promise.all(getPromises).then(function() {keyResolve(true);}, function(){ keyReject(true);});
+			});
+		});
+		keyPromise.then(function()
+		{
+			console.log(activities);
+			res.json(activities);
+		}, function()
+		{
+			res.json({"error" : "required parameters missing"});
+		});           
+       
+     /*************** Token KO !!! **************************/ 
+     /*************** CODE ANTOINE **************************/ 
     }, function()
     {
         res.json({"error" : "required parameters missing"});
-    });
+    });	
+
 });
 
 
@@ -222,54 +305,82 @@ app.get("/topic", function(req, res)
 {
     var rejection = false;
     var userToken = req.query.token != undefined ? req.query.token : null;
-    // Envoyer un get au serveur authentification pour faire valider le token userToken
-    var topic = req.query.topic != undefined ? req.query.topic : null;
-    var latitude = req.query.latitude != undefined ? req.query.latitude : null;
-    var longitude = req.query.longitude != undefined ? req.query.longitude : null;
-    if(userToken == null || topic == null)
+    
+    
+    /************** CODE ANTOINE ******************************************/
+	
+	var getPromise1 = new Promise(function(resolve, reject) {
+		var body = {'token' : req.query.token};    
+		var options = {hostname: 'localhost',port: '3030',path: '/checkToken', method: 'GET', json:true};
+		
+		/************ GET /checkToken *************************************/
+		request(options, function(error, response, body){
+		
+			if(error || body.query.reponse == 'ko') reject();			
+			else resolve();	
+		});		
+	});	
+		
+	getPromise1.then(function()
     {
-        rejection = true;
-    }
-    var activities = [];
-    var keyPromise = new Promise(function(keyResolve, keyReject)
-    {
-        if(rejection)
-        {
-            keyReject(true);
-        }
-        var key_db = "activity:topic:" + topic + ":*";
-        client.keys(key_db, function(keyErr, keyReply)
-        {
-            var getPromises = [];
-            for (var key_activities in keyReply)
-            {
-                var getPromise = new Promise(function(getResolve, getReject)
-                {
-                    client.hgetall(keyReply[key_activities], function(getErr, getReply)
-                    {
-                        var newActivity = new Activity();
-                        newActivity.hydrateFromDB(getReply);
-                        newActivity.setTopic(topic);
-                        if((latitude == null && longitude == null) || (latitude == newActivity.getLatitude() && longitude == newActivity.getLongitude()))
-                        {
-                            activities.push(activity);
-                        }
-                        getResolve(true);
-                    });
-                });
-                getPromises.push(getPromise);
-        }
-        Promise.all(getPromises).then(function() {keyResolve(true);}, function() {keyReject(true);});
-        });
-    });
-    keyPromise.then(function()
-    {
-        console.log(activities);
-        res.json(activities);
+   
+		/*************** Token OK !!! **************************/
+		/*************** CODE LAURA ****************************/   
+		var topic = req.query.topic != undefined ? req.query.topic : null;
+		var latitude = req.query.latitude != undefined ? req.query.latitude : null;
+		var longitude = req.query.longitude != undefined ? req.query.longitude : null;
+		if(userToken == null || topic == null)
+		{
+			rejection = true;
+		}
+		var activities = [];
+		var keyPromise = new Promise(function(keyResolve, keyReject)
+		{
+			if(rejection)
+			{
+				keyReject(true);
+			}
+			var key_db = "activity:topic:" + topic + ":*";
+			client.keys(key_db, function(keyErr, keyReply)
+			{
+				var getPromises = [];
+				for (var key_activities in keyReply)
+				{
+					var getPromise = new Promise(function(getResolve, getReject)
+					{
+						client.hgetall(keyReply[key_activities], function(getErr, getReply)
+						{
+							var newActivity = new Activity();
+							newActivity.hydrateFromDB(getReply);
+							newActivity.setTopic(topic);
+							if((latitude == null && longitude == null) || (latitude == newActivity.getLatitude() && longitude == newActivity.getLongitude()))
+							{
+								activities.push(activity);
+							}
+							getResolve(true);
+						});
+					});
+					getPromises.push(getPromise);
+			}
+			Promise.all(getPromises).then(function() {keyResolve(true);}, function() {keyReject(true);});
+			});
+		});
+		keyPromise.then(function()
+		{
+			console.log(activities);
+			res.json(activities);
+		}, function()
+		{
+			res.json({"error" : "required parameters missing"});
+		});
+     
+     /*************** Token KO !!! **************************/ 
+     /*************** CODE ANTOINE **************************/ 
     }, function()
     {
         res.json({"error" : "required parameters missing"});
-    });
+    });	    
+    
 });
 
 
@@ -278,7 +389,7 @@ app.get("/topic", function(req, res)
 app.post("/topic", function(req, res)
 {
     // Verifier validité token
-    // Récupérer la data dy body
+    // Récupérer la data du body
     // Insérer dans la base de données
     // Envoyer au serveur pub sub l'activité
     // Retour vide si tout va bien (200)
