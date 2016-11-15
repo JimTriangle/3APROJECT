@@ -68,7 +68,7 @@ app.get('/alert/geo', function (req, res)
         res.json({"error" : "required parameters missing"});
     }
 
-    var subscribeRoute = "http://localhost:3000/subChannel/geoloc";
+    var subscribeRoute = "http://localhost:3020/subChannel/geoloc";
     var unsubscribeRoute = "";
     var newActivity = new Activity();
     newActivity.setLatitude(latitude);
@@ -93,7 +93,7 @@ app.get('/alert/topic', function (req, res)
         res.json({"error" : "required parameters missing"});
     }
 
-    var subscribeRoute = "http://localhost:3000/subChannel/topic";
+    var subscribeRoute = "http://localhost:3020/subChannel/topic";
     var unsubscribeRoute = "";
     var newActivity = new Activity();
     newActivity.setTopic(topic);

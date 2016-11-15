@@ -5,7 +5,7 @@ services:
     ports:
       - "3010:3010"
     volumes:
-      - /home/bibite/projects/3APROJECT/webser:/www
+      - /home/antoine/Documents/3APROJECT/webser:/www
     depends_on:
       - serveurRedis
   pubsubservice:
@@ -13,7 +13,7 @@ services:
     ports:
       - "3020:3020"
     volumes:
-      - /home/bibite/projects/3APROJECT/server_pubsub:/www
+      - /home/antoine/Documents/3APROJECT/server_pubsub:/www
     depends_on:
       - webservice
   serveurRedis:
@@ -22,4 +22,4 @@ services:
     ports:
       - "6379:6379"
     volumes: 
-      - /home/bibite/projects/3APROJECT/webser/db:/data
+      - /home/antoine/Documents/webser/db:/data
