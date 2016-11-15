@@ -1,0 +1,25 @@
+version: "2"
+services:
+  webservice:
+    image: monostream/nodejs-express
+    ports:
+      - "3010:3010"
+    volumes:
+      - /home/bibite/projects/3APROJECT/webser:/www
+    depends_on:
+      - serveurRedis
+  pubsubservice:
+    image: monostream/nodejs-express
+    ports:
+      - "3020:3020"
+    volumes:
+      - /home/bibite/projects/3APROJECT/server_pubsub:/www
+    depends_on:
+      - webservice
+  serveurRedis:
+    image: redis:alpine
+    command: redis-server
+    ports:
+      - "6379:6379"
+    volumes: 
+      - /home/bibite/projects/3APROJECT/webser/db:/data
