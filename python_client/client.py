@@ -7,7 +7,7 @@ from Tkinter import *
 reload(sys) # ugly hack to access sys.setdefaultencoding
 sys.setdefaultencoding('utf-8')
 
-webServiceAddress = 'http://127.0.0.1:8090'
+webServiceAddress = 'http://127.0.0.1:3000'
 topicRoute = '/alert/topic/'
 geolocRoute = '/alert/geo/'
 
@@ -27,7 +27,7 @@ class topic_subcriber_thread(Thread):
 				
 		
 		############# requete ajax to pubsub web service #############			
-		channelNameResp = requests.get(WSResp['subscribeRoute'] + '?topicName=' + WSResp['data']['topic'])	# ajouter plus tard lat et lon et corriger aussi cote server	
+		channelNameResp = requests.get(WSResp['subscribeRoute'] + '?topicName=' + WSResp['data']['topic'])	# ajouter plus lat et lon tard lat et lon et corriger aussi cote server	
 		print "### TOPIC ASK : " +  self.topicNameAsk + " - CHANNEL NAME : " + channelNameResp.text + " ### "
 		
 		############# redis client ############# 
@@ -61,10 +61,9 @@ class geoloc_subcriber_thread(Thread):
 		longitude = WSResp['data']['geoposition']['longitude']
 		perimeter = WSResp['data']['perimeter']
 		
-		param = '{latitude : ' + latitude + ', longitude :' + longitude + ', perimeter:' + perimeter + '}'
-
+		param = { 'latitude' : latitude , 'longitude' : longitude, 'perimeter' : perimeter }
 		channelNameResp = requests.get(WSResp['subscribeRoute'], param)	# ajouter plus tard lat et lon et corriger aussi cote server		
-		print "###GEOLOC ASK : lat = " +  latitude + ", lon = " + longitude + ", perimeter : " + perimeter + " - CHANNEL NAME : " + channelNameResp.text + " ### "
+		#print "### GEOLOC ASK : lat = " +  latitude + ", lon = " + longitude + ", perimeter : " + perimeter + " - CHANNEL NAME : " + channelNameResp.text + " ### "
 		
 		############# redis client ############# 
 		redisClient = redis.StrictRedis(host='localhost', port=6379, db=0)
@@ -77,11 +76,31 @@ class geoloc_subcriber_thread(Thread):
 				print "### MESSAGE ON GEOLOC : " +  latitude + ", lon = " + longitude + " >>> %s ###" % message['data']
 				time.sleep(1)
 				
+				
+				
+class test_web_service_thread(Thread):
+   
+    def __init__(self):
+        Thread.__init__(self)
+
+    def run(self):	
+		print 'Le thread commence ...'
+		post = {'topic': 'myTopic',	'date':	'date',	'geoposition': { 'latitude': '56', 'longitude': '45'}, 'popularity': 'popular',	'perimeter': '20'}
+		route = '/topic'
+		token = '/?token=123456789'
+		channelNameResp = requests.post(webServiceAddress + route + token, post)
+				
+
+			
+testWebServiceThread = test_web_service_thread();
+testWebServiceThread.start()				
+				
+				
 #subThread = topic_subcriber_thread("antoine", "", "")
 #subThread.start()
 
-subThread2 = geoloc_subcriber_thread('0', '0', '2');
-subThread2.start()
+#subThread2 = geoloc_subcriber_thread('0', '0', '2');
+#subThread2.start()
 
 """
 AlertChannelRoutes = {
