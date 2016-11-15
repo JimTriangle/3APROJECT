@@ -57,6 +57,8 @@ app.get('/', function (req, res)
     res.send('Hello World!');
 });
 
+// Route pour Rasp
+// Marche 100%
 app.get('/alert/geo', function (req, res)
 {
     var latitude = req.query.latitude != undefined ? req.query.latitude : null;
@@ -68,7 +70,7 @@ app.get('/alert/geo', function (req, res)
         res.json({"error" : "required parameters missing"});
     }
 
-    var subscribeRoute = "http://localhost:3020/subChannel/geoloc";
+    var subscribeRoute = "http://localhost:3000/subChannel/geoloc";
     var unsubscribeRoute = "";
     var newActivity = new Activity();
     newActivity.setLatitude(latitude);
@@ -81,6 +83,9 @@ app.get('/alert/geo', function (req, res)
     res.json(answer);
 });
 
+
+// Route pour Rasp
+// Marche 100%
 app.get('/alert/topic', function (req, res)
 {
     var topic = req.query.topic != undefined ? req.query.topic : null;
@@ -93,7 +98,7 @@ app.get('/alert/topic', function (req, res)
         res.json({"error" : "required parameters missing"});
     }
 
-    var subscribeRoute = "http://localhost:3020/subChannel/topic";
+    var subscribeRoute = "http://localhost:3000/subChannel/topic";
     var unsubscribeRoute = "";
     var newActivity = new Activity();
     newActivity.setTopic(topic);
@@ -107,12 +112,15 @@ app.get('/alert/topic', function (req, res)
     res.json(answer);
 });
 
+
+// Route pour Mobile
+// Manque validité token + liste des tokens
 app.get("/user/:token", function(req, res)
 {
-    // TODO check validity of token
-    // TODO retrieve all user token
     var tokens = ["3EAB547"];
     tokens.push(req.params.token);
+    // Envoyer un get au serveur authentification pour faire valider le token userToken
+    // Envoyer un get au serveur authentification pour obtenir la liste des tokens d'un utilisateur en fonction du token actuel
     var activities = [];
     var keyPromises = [];
     for (var iToken = 0; iToken < tokens.length; ++iToken)
@@ -151,12 +159,14 @@ app.get("/user/:token", function(req, res)
     });
 });
 
+
+// Route pour Mobile
+// Manque validité token
 app.get("/geo", function(req, res)
 {
-    // TODO check validity of token
-    // TODO retrieve all user token
     var rejection = false;
     var userToken = req.query.token != undefined ? req.query.token : null;
+    // Envoyer un get au serveur authentification pour faire valider le token userToken
     var latitude = req.query.latitude != undefined ? req.query.latitude : null;
     var longitude = req.query.longitude != undefined ? req.query.longitude : null;
     var perimeter = req.query.perimeter != undefined ? req.query.perimeter : null;
@@ -206,12 +216,13 @@ app.get("/geo", function(req, res)
 });
 
 
+// Route pour Mobile
+// Manque validité token
 app.get("/topic", function(req, res)
 {
-    // TODO check validity of token
-    // TODO retrieve all user token
     var rejection = false;
     var userToken = req.query.token != undefined ? req.query.token : null;
+    // Envoyer un get au serveur authentification pour faire valider le token userToken
     var topic = req.query.topic != undefined ? req.query.topic : null;
     var latitude = req.query.latitude != undefined ? req.query.latitude : null;
     var longitude = req.query.longitude != undefined ? req.query.longitude : null;
@@ -236,11 +247,10 @@ app.get("/topic", function(req, res)
                 {
                     client.hgetall(keyReply[key_activities], function(getErr, getReply)
                     {
-                        var activity = {};
-                        fillActivityTable(reply2, activity);
-                        activity["topic"] = topic;
-                        // Trier par localisation si précisé
-                        if((latitude == null && longitude == null) || (latitude == activity["geoposition"]["latitude"] && longitude == activity["geoposition"]["longitude"]))
+                        var newActivity = new Activity();
+                        newActivity.hydrateFromDB(getReply);
+                        newActivity.setTopic(topic);
+                        if((latitude == null && longitude == null) || (latitude == newActivity.getLatitude() && longitude == newActivity.getLongitude()))
                         {
                             activities.push(activity);
                         }
@@ -262,13 +272,21 @@ app.get("/topic", function(req, res)
     });
 });
 
+
+// Route pour Mobile
+// TODO MANQUE TOUT
 app.post("/topic", function(req, res)
 {
+    // Verifier validité token
+    // Récupérer la data dy body
+    // Insérer dans la base de données
+    // Envoyer au serveur pub sub l'activité
+    // Retour vide si tout va bien (200)
 });
 
-app.put("/topic", function(req, res)
+/*app.put("/topic", function(req, res)
 {
-});
+});*/
 
 
 
