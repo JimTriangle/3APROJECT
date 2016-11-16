@@ -12,26 +12,16 @@ Log.logger = HeliumLogger()
  
 // setup routes
 let router = Router()
-router.get("/") { _, response, next in
-    response.status(.OK).send(json: JSON(["huitre"]))
-    
-    next()
-}
 
-router.get("users"){ _, response, next in
-	
-	let users = getUsers()
+router.post("addUser", handler: addUser)
 
-	for user in users{
-		print(user)
-	}
 
-	response.status(.OK)
 
-	next()
-}
+router.post("token", handler: token)
+
+router.get("tokens", handler: tokens)
  
 // Start server
 Log.info("Starting server")
-Kitura.addHTTPServer(onPort: 8090, with: router)
+Kitura.addHTTPServer(onPort: 3030, with: router)
 Kitura.run()
