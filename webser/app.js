@@ -541,7 +541,7 @@ getPromise1.then(function() {
 	{
 		comptage = 0;
 		index = index++;
-		client.hlen("activity:topic:" + req.body.topic + ":1;"+index,redis.print);
+		client.hlen("activity:topic:" + req.body.topic + ":1:"+index,redis.print);
 		if comptage = 0
 		{
 			client.hset("activity:topic:" + req.body.topic + ":1:"+index, "token", req.query.token, redis.print);

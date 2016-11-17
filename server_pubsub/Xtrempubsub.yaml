@@ -111,7 +111,6 @@ definitions:
           type: number
           format: double
   ChannelName:
-    type: object
     properties:
       channelname:
         type: string
