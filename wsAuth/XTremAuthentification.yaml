@@ -1,0 +1,121 @@
+# this is an example of the Uber API
+# as a demonstration of an API spec in YAML
+swagger: '2.0'
+info:
+  title: XTremAuthentification 
+  description: API Xtrem projet 3A Plateformes mobiles
+  version: "1.0.0"
+# the domain of the service TODO
+host: localhost
+# array of all schemes that your API supports
+schemes:
+  - http
+paths:
+    /token:
+      get:
+        summary: Check validity of a given token
+        parameters:
+          - name: token
+            in: body
+            description: The user token
+            required: true
+            schema: 
+              $ref: '#/definitions/Token'
+        responses:
+          200:
+            description: Ok
+            schema:
+              $ref: '#/definitions/Result'
+          default:
+            description: Unexpected error
+            schema:
+              $ref: '#/definitions/Result'
+    /tokens:
+      get:
+        summary: Retrieve array of tokens relative to one specific user using his current token
+        parameters:
+          - name: token
+            in: body
+            description: The user token
+            required: true
+            schema: 
+              $ref: '#/definitions/Token'
+        responses:
+          200:
+            description: Routes to manage subscription to a channel
+            schema:
+              type: array
+              items:
+                $ref: '#/definitions/Token'
+    /addUser:
+      post:
+        summary: Add a new use to the database
+        parameters:
+          - name: userData
+            in: body
+            required: true
+            schema: 
+              $ref: '#/definitions/UserData'
+        responses:
+          200:
+            description: Ok
+            schema:
+              $ref: '#/definitions/Result'
+          default:
+            description: Unexpected error
+            schema:
+              $ref: '#/definitions/Result'
+    /login:
+      post:
+        summary: Log to the service
+        parameters:
+          - name: loginData
+            in: body
+            required: true
+            schema: 
+              $ref: '#/definitions/LoginData'
+        responses:
+          200:
+            description: Ok
+            schema:
+              $ref: '#/definitions/Result'
+          default:
+            description: Unexpected error
+            schema:
+              $ref: '#/definitions/Result'
+definitions:
+  Result:
+      type: object
+      properties:
+        resultat:
+          type: string
+          description: Code de compte-rendu de la requête
+        message:
+          type: string
+          description: Espace de message si besoin (cas d'erreur etc...)
+  UserData:
+      type: object
+      properties:
+        nom_user:
+          type: string
+        prenom_user:
+          type: string
+        pseudo_user:
+          type: string
+        password_user:
+          type: string
+        email_user:
+          type: string
+  LoginData:
+      type: object
+      properties:
+        pseudo_user:
+          type: string
+        password_user:
+          type: string
+  Token:
+      type: object
+      properties:
+        token:
+          type: string
+          description: the token

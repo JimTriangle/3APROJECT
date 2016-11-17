@@ -6,12 +6,12 @@ info:
   description: API Xtrem projet 3A Plateformes mobiles
   version: "1.0.0"
 # the domain of the service TODO
-host: api.uber.com
+host: localhost
 # array of all schemes that your API supports
 schemes:
   - http
 # will be prefixed to all paths
-basePath: /xtrem
+
 produces:
   - application/json
 paths:
@@ -98,7 +98,7 @@ definitions:
           type: number
           format: integer
           description: Popularity of the activity
-  geolocPerimeter:
+  GeolocPerimeter:
       type: object
       properties:
         latitude:
