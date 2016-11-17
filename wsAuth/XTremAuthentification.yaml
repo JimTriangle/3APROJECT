@@ -49,7 +49,7 @@ paths:
                 $ref: '#/definitions/Token'
     /addUser:
       post:
-        summary: Add a new use to the database
+        summary: Add a new user to the database
         parameters:
           - name: userData
             in: body
