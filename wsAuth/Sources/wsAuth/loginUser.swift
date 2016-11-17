@@ -23,17 +23,41 @@ func login(request: RouterRequest, response: RouterResponse, next: ()->Void)-> V
     do {
 		let db = try SQLite(path:"/home/wasoh/PROJET/3APROJECT/wsAuth/dbUser.db")
 		var query:String = "SELECT * FROM Users WHERE pseudo_user = "
-		query +=  "'" + dataUser["pseudo_user"].string! + "', AND password_user"
+		query +=  "'" + dataUser["pseudo_user"].string! + "' AND password_user = "
 		query +=  "'" + dataUser["password_user"].string! + "';"
 
-		print(query)
-
-
 		do{
-			try db.execute(query)
-			response.status(.OK).send(json: JSON(["resultat":"ok"]))
+			let user = try db.execute(query)
+
+			var i:Int = 0
+
+			for _ in user{
+				i = i + 1		
+			}
+
+			if(i == 0){
+				response.status(.OK).send(json: JSON(["resultat":"ko"]))
+			}else{
+				let retour:String = createToken()
+				let dateFormatter = DateFormatter()
+				dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+				let currentDate = Date()
+				let currentDateString = dateFormatter.string(from:currentDate)
+
+				query = "INSERT INTO Tokens(id_user, token, date_last_use) VALUES ((SELECT id_user FROM Users WHERE pseudo_user = '" + dataUser["pseudo_user"].string! + "'), '" + retour + "', '" + currentDateString + "');"
+				do{
+					try db.execute(query)
+					response.status(.OK).send(json: JSON(["resultat":"ok", "token":retour]))
+				}catch{
+					print("Erreur de l'ajout du token")
+					print(query)
+					return
+				}
+	
+			}
 		}catch{
 			response.status(.OK).send(json: JSON(["resultat":"ko"]))
+			return
 		}
 	}catch{
 		print("Erreur de connexion à la base de donnée")

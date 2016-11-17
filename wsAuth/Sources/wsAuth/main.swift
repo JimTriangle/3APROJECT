@@ -15,11 +15,11 @@ let router = Router()
 
 router.post("addUser", handler: addUser)
 
-
+router.post("login", handler: login)
 
 router.post("token", handler: token)
 
-router.get("tokens", handler: tokens)
+router.post("tokens", handler: tokens)
  
 // Start server
 Log.info("Starting server")
