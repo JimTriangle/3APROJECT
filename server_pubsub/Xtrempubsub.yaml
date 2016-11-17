@@ -42,7 +42,7 @@ paths:
             description: geolocation subscription asked
             required: true
             schema: 
-              $ref: '#/definitions/geolocPerimeter'
+              $ref: '#/definitions/GeolocPerimeter'
         responses:
           200:
             description: Routes to manage subscription to a channel
