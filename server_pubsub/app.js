@@ -82,7 +82,7 @@ app.get('/subChannel/geoloc', function (req, res) {
 		console.log("Geoloc named \"" + JSON.stringify(params) + "\" already exists ans is associated whith channel \"" + ChannelName + "\"");
 	}
 
-	res.send({'channelName' : ChannelName}); 	// retourne le nom du channel
+	res.send(ChannelName); 	// retourne le nom du channel
 });
 
 // verify if a channel exists for a defined topic 

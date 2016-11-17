@@ -335,7 +335,9 @@ app.get("/topic", function(req, res)
 {
     var rejection = false;
     var userToken = req.query.token != undefined ? req.query.token : null;
-    
+	var topic = req.query.topic != undefined ? req.query.topic : null;
+	var latitude = req.query.latitude != undefined ? req.query.latitude : null;
+	var longitude = req.query.longitude != undefined ? req.query.longitude : null;
     
     /************** CODE ANTOINE ******************************************/
 	
@@ -355,9 +357,7 @@ app.get("/topic", function(req, res)
    
 		/*************** Token OK !!! **************************/
 		/*************** CODE LAURA ****************************/   
-		var topic = req.query.topic != undefined ? req.query.topic : null;
-		var latitude = req.query.latitude != undefined ? req.query.latitude : null;
-		var longitude = req.query.longitude != undefined ? req.query.longitude : null;
+
 		if(userToken == null || topic == null)
 		{
 			rejection = true;
@@ -483,9 +483,100 @@ app.post("/topic", function(req, res)
 
 });
 
-/*app.put("/topic", function(req, res)
+
+
+
+// PUT TOPIC
+app.put("/topic", function(req, res)
 {
-});*/
+
+var getPromise1 = new Promise(function(resolve, reject) {
+
+	var body = {"token" : req.query.token};
+	var options = {url: 'http://172.30.1.167:3030/token', method: 'PUT', json:true, body : body};
+
+	request(options, function(error, response, body){
+		if(error ||body.resultat == 'ko') reject();
+		else resolve();
+	});
+});
+
+getPromise1.then(function() {
+
+	var comptage = 1;
+	var index = 0;
+	
+	while (comptage != 0)
+	{ 
+		comptage = 0;
+		index = index++;
+		comptage = client.hlen("activity:token:" + req.query.token + ":1:"+index,redis.print);
+		if comptage = 0
+		{
+			client.hset("activity:token:" + req.query.token + ":1:"+index, "topic", req.body.topic, redis.print);
+			client.hset("activity:token:" + req.query.token + ":1:"+index, "geoposition", req.body.geoposition.latitude + "," + req.body.geoposition.longitude, redis.print);
+			client.hset("activity:token:" + req.query.token + ":1:"+index, "date", "2016-01-09T12:51:32", redis.print);
+		}	
+	}
+	
+	comptage = 1;
+	index=0;
+	
+	while(comptage != 0)
+	{
+		comptage = 0;
+		index = index++;
+		client.hlen("activity:geoposition:" + req.body.geoposition.latitude + ":" + req.body.geoposition.longitude + ":1:"+index);
+		if comptage = 0
+		{
+			client.hset("activity:geoposition:" + req.body.geoposition.latitude + ":" + req.body.geoposition.longitude + ":1:"+index, "topic", req.body.topic, redis.print);
+			client.hset("activity:geoposition:" + req.body.geoposition.latitude + ":" + req.body.geoposition.longitude + ":1:"+index, "token", req.query.token, redis.print);
+			client.hset("activity:geoposition:" + req.body.geoposition.latitude + ":" + req.body.geoposition.longitude + ":1:"+index, "date", "2016-01-09T12:51:32", redis.print);
+			}
+	}
+
+	comptage =1;
+	index=0;
+	while(comptage != 0)
+	{
+		comptage = 0;
+		index = index++;
+		client.hlen("activity:topic:" + req.body.topic + ":1;"+index,redis.print);
+		if comptage = 0
+		{
+			client.hset("activity:topic:" + req.body.topic + ":1:"+index, "token", req.query.token, redis.print);
+			client.hset("activity:topic:" + req.body.topic + ":1:"+index, "geoposition", req.body.geoposition.latitude + "," + req.body.geoposition.longitude, redis.print);
+				client.hset("activity:topic:" + req.body.topic + ":1:"+index, "date", "2016-01-12T12:51:32", redis.print);
+				}
+	}
+	
+// Envoyer au serveur pub sub l'activité
+	var getPromise2 = new Promise(function(resolve, reject) {
+
+		var body = req.body;
+		var options = {url: 'http://172.30.1.167:3030/token', method: 'POST', json:true, body : body};
+
+		request(options, function(error, response, body){
+			if(error ||body.resultat == 'ko') reject();
+			else resolve();
+		});
+	});
+
+	getPromise2.then(function() {
+		// Retour vide si tout va bien (200)
+		console.log("New post sent to pubsub server");
+	}, function()
+	{
+		res.json({"error" : "pubsub server connexion failed"});
+	});
+
+	Promise.all([getPromise2]);
+
+}, function()
+{
+	res.json({"error" : "authentification server connexion failed OR token error"});
+});
+
 
 
 
