@@ -28,7 +28,7 @@ paths:
           200:
             description: Routes to manage subscription to a channel
             schema:
-              $ref: '#/definitions/AlertChannelRoutes'
+              $ref: '#/definitions/ChannelName'
           default:
             description: Unexpected error
             schema:
@@ -47,7 +47,7 @@ paths:
           200:
             description: Routes to manage subscription to a channel
             schema:
-              $ref: '#/definitions/AlertChannelRoutes'
+              $ref: '#/definitions/ChannelName'
           default:
             description: Unexpected error
             schema:
@@ -110,6 +110,12 @@ definitions:
         perimeter:
           type: number
           format: double
+  ChannelName:
+    type: object
+    properties:
+      channelname:
+        type: string
+        description: Name of channel
   AlertChannelRoutes:
     properties:
       subscribeRoute:
@@ -118,6 +124,8 @@ definitions:
       unsubscribeRoute:
         type: string
         description: Route to unsubscribe to a requested channel
+      data:
+        $ref: '#/definitions/Activity'
   Error:
       type: object
       properties:
