@@ -29,6 +29,7 @@ func tokens(request: RouterRequest, response: RouterResponse, next: ()->Void)-> 
 		do{
 			let tokens = try db.execute(query)
 
+<<<<<<< HEAD
 			print(tokens)
 
 			var stringTokens = "{\"Tokens\": ["
@@ -47,6 +48,16 @@ func tokens(request: RouterRequest, response: RouterResponse, next: ()->Void)-> 
 			print(JSON(data: jsonReturn!))
 
 			response.status(.OK).send(stringTokenReturn)
+=======
+			var jsonReturn: JSON = ["token":[]]
+
+			for token in tokens{
+				jsonReturn["token"].appendIfArray(json: JSON(token.data["token"]))
+			}
+
+			print(jsonReturn)
+			response.status(.OK).send(json: jsonReturn)		
+>>>>>>> 065f8aec128915fe941fef15a01f9da55bbd508d
 		}catch{
 			print("Request error")
 			response.status(.internalServerError)

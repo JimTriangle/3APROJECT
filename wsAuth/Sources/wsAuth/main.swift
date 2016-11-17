@@ -15,11 +15,19 @@ let router = Router()
 
 router.post("addUser", handler: addUser)
 
+<<<<<<< HEAD
 
 
 router.post("token", handler: token)
 
 router.get("tokens", handler: tokens)
+=======
+router.post("login", handler: login)
+
+router.post("token", handler: token)
+
+router.post("tokens", handler: tokens)
+>>>>>>> 065f8aec128915fe941fef15a01f9da55bbd508d
  
 // Start server
 Log.info("Starting server")

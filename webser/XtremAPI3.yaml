@@ -1,0 +1,295 @@
+# this is an example of the Uber API
+# as a demonstration of an API spec in YAML
+swagger: '2.0'
+info:
+  title: Xtrem API
+  description: API Xtrem projet 3A Plateformes mobiles
+  version: "1.0.0"
+# the domain of the service TODO
+host: api.uber.com
+# array of all schemes that your API supports
+schemes:
+  - http
+# will be prefixed to all paths
+basePath: /xtrem
+produces:
+  - application/json
+paths:
+  /alert/geo:
+    get:
+      summary: Set an alert on a geoposition
+      parameters:
+        - name: latitude
+          in: query
+          description: Latitude of location
+          required: true
+          type: number
+          format: double
+        - name: longitude
+          in: query
+          description: Longitude of location
+          required: true
+          type: number
+          format: double
+        - name: perimeter
+          in: query
+          description: Perimeter around the location
+          required: false
+          type: number
+          format: integer
+      responses:
+        200:
+          description: Routes to manage subscription to a channel
+          schema:
+            $ref: '#/definitions/AlertChannelRoutes'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /alert/topic:
+    get:
+      summary: Set an alert on a topic, optionnally within a geolocation
+      parameters:
+        - name: topic
+          in: query
+          description: Topic to follow
+          required: true
+          type: string
+        - name: latitude
+          in: query
+          description: Latitude of location
+          required: false
+          type: number
+          format: double
+        - name: longitude
+          in: query
+          description: Longitude of location
+          required: false
+          type: number
+          format: double
+        - name: perimeter
+          in: query
+          description: Perimeter around the location
+          required: false
+          type: number
+          format: integer
+      responses:
+        200:
+          description: Routes to manage subscription to a channel
+          schema:
+            $ref: '#/definitions/AlertChannelRoutes'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /user/:
+    get:
+      summary: Recent activities of a specific user
+      parameters:
+        - name: token
+          in: query
+          description: Current token of user's session
+          required: true
+          type: string
+      responses:
+        200:
+          description: An array of recent activities order by date
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Activities'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /geo:
+    get:
+      summary: Current activities near to a specific location
+      parameters:
+        - name: latitude
+          in: query
+          description: Latitude of location
+          required: true
+          type: number
+          format: double
+        - name: longitude
+          in: query
+          description: Longitude of location
+          required: true
+          type: number
+          format: double
+        - name: token
+          in: query
+          description: User's token
+          required: true
+          type: string
+        - name: perimeter
+          in: query
+          description: Perimeter around the location
+          required: false
+          type: number
+          format: integer
+        - name: time
+          in: query
+          description: Ancienneté max du post en minutes
+          required: false
+          type: number
+          format: integer
+      responses:
+        200:
+          description: An array of recent activities order by proximity and date
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Activities'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /topic:
+    get:
+      summary: Details on a specific activity by its topic name
+      parameters:
+        - name: topic
+          in: query
+          description: Topic in camelCase
+          required: true
+          type: string
+        - name: token
+          in: query
+          description: User's token
+          required: true
+          type: string
+        - name: latitude
+          in: query
+          description: Latitude of location
+          required: false
+          type: number
+          format: double
+        - name: longitude
+          in: query
+          description: Longitude of location
+          required: false
+          type: number
+          format: double
+      responses:
+        200:
+          description: All activities related to the topic, close to a location if specified
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Activities'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      description: Creates an activity on a specific location
+      parameters:
+        - name: token
+          in: query
+          description: User's token
+          required: true
+          type: string
+        - name: activity
+          in: body
+          description: Activity details
+          required: true
+          schema:
+            $ref: '#/definitions/Activity'
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    put:
+      description: Creates an activity related to an existent one
+      parameters:
+        - name: token
+          in: query
+          description: User's token
+          required: true
+          type: string
+        - name: activity
+          in: body
+          description: New activity
+          required: true
+          schema:
+            $ref: '#/definitions/Activity'
+      responses:
+        200:
+          description: An array of recent activities order by proximity and date
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Activities'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  Geolocation:
+    type: object
+    properties:
+      latitude:
+        type: number
+        format: double
+        description: Latitude of the activity's location
+      longitude:
+        type: number
+        format: double
+        description: Longitude of the activity's location
+  Activity:
+    type: object
+    properties:
+      topic:
+        type: string
+        description: Topic of the activity
+      date:
+        type: string
+        description: Date of the activity
+      geolocation:
+        $ref: '#/definitions/Geolocation'
+      popularity:
+        type: number
+        format: integer
+        description: Popularity of the activity
+  Activities:
+    type: object
+    properties:
+      offset:
+        type: integer
+        format: int32
+        description: Position in pagination.
+      limit:
+        type: integer
+        format: int32
+        description: Number of items to retrieve (100 max).
+      count:
+        type: integer
+        format: int32
+        description: Total number of items available.
+      history:
+        type: array
+        items:
+          $ref: '#/definitions/Activity'
+  AlertChannelRoutes:
+    properties:
+      subscribeRoute:
+        type: string
+        description: Route to subscribe to a requested channel
+      unsubscribeRoute:
+        type: string
+        description: Route to unsubscribe to a requested channel
+      data:
+        $ref: '#/definitions/Activity'
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string

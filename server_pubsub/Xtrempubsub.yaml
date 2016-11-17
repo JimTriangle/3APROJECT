@@ -2,7 +2,7 @@
 # as a demonstration of an API spec in YAML
 swagger: '2.0'
 info:
-  title: Xtrempubsubdelamorkitu 
+  title: Xtrempubsub 
   description: API Xtrem projet 3A Plateformes mobiles
   version: "1.0.0"
 # the domain of the service TODO
@@ -28,7 +28,7 @@ paths:
           200:
             description: Routes to manage subscription to a channel
             schema:
-              $ref: '#/definitions/AlertChannelRoutes'
+              $ref: '#/definitions/ChannelName'
           default:
             description: Unexpected error
             schema:
@@ -42,12 +42,12 @@ paths:
             description: geolocation subscription asked
             required: true
             schema: 
-              $ref: '#/definitions/geolocPerimeter'
+              $ref: '#/definitions/GeolocPerimeter'
         responses:
           200:
             description: Routes to manage subscription to a channel
             schema:
-              $ref: '#/definitions/AlertChannelRoutes'
+              $ref: '#/definitions/ChannelName'
           default:
             description: Unexpected error
             schema:
@@ -110,6 +110,12 @@ definitions:
         perimeter:
           type: number
           format: double
+  ChannelName:
+    type: object
+    properties:
+      channelname:
+        type: string
+        description: Name of channel
   AlertChannelRoutes:
     properties:
       subscribeRoute:
@@ -118,6 +124,8 @@ definitions:
       unsubscribeRoute:
         type: string
         description: Route to unsubscribe to a requested channel
+      data:
+        $ref: '#/definitions/Activity'
   Error:
       type: object
       properties:
