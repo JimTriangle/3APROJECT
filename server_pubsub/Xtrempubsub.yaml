@@ -2,7 +2,7 @@
 # as a demonstration of an API spec in YAML
 swagger: '2.0'
 info:
-  title: Xtrempubsubdelamorkitu 
+  title: Xtrempubsub 
   description: API Xtrem projet 3A Plateformes mobiles
   version: "1.0.0"
 # the domain of the service TODO
