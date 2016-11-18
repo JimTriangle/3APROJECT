@@ -9,7 +9,7 @@ sys.setdefaultencoding('utf-8')
 
 # TEST LOCAL - TEST GLOBAL
 #webServiceAddress = 'http://127.0.0.1:3020' #to pubsub server
-webServiceAddress = 'http://127.0.0.1:3010'  # to web service server
+webServiceAddress = 'http://localhost:3010'  # to web service server
 
 topicRoute = '/alert/topic/'
 geolocRoute = '/alert/geo/'

@@ -23,3 +23,10 @@ services:
       - "6379:6379"
     volumes: 
       - /home/antoine/Documents/webser/db:/data
+  serveurAuth:
+    image: swiftdocker/swift
+    command: sh serverAuthLauncher.sh
+    ports:
+      - "3030:3030"
+    volumes:    
+      - /home/antoine/Documents/wsAuth:/www

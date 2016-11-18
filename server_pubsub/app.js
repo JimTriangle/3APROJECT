@@ -15,8 +15,7 @@ var random_name = require('node-random-name');
 var redis = require("redis");
 
 /* TEST LOCAL - TEST GLOBAL */
-var publisher = redis.createClient();
-//var publisher = redis.createClient(6379, '172.30.1.56');
+var publisher = redis.createClient(6379, 'localhost');
 
 
 

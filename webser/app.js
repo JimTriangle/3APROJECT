@@ -9,8 +9,7 @@ app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 /* TEST LOCAL - TEST GLOBAL */
-//var client = redis.createClient(6379, '172.30.1.56');
-var client = redis.createClient();
+var client = redis.createClient(6379, 'localhost');
 
 var Activity = require("./Activity.js");
 
@@ -135,7 +134,7 @@ app.get("/user", function(req, res)
 	var getPromise1 = new Promise(function(resolve, reject) {
 
 		var body = {"token" : req.query.token};
-		var options = {url: 'http://172.30.1.167:3030/token', header: 'Content-Type:application/json', method: 'POST', json:true, body : body};
+		var options = {url: 'http://localhost:3030/token', header: 'Content-Type:application/json', method: 'POST', json:true, body : body};
 	
 		request(options, function(error, response, body){			
 			if(error ||body.resultat == 'ko') reject();			
@@ -151,7 +150,7 @@ app.get("/user", function(req, res)
 		var getPromise2 = new Promise(function(resolve, reject) {
 
 			var body = {"token" : req.query.token};
-			var options = {url: 'http://172.30.1.167:3030/tokens', header: 'Content-Type:application/json', method: 'POST', json:true, body : body};
+			var options = {url: 'http://localhost:3030/tokens', header: 'Content-Type:application/json', method: 'POST', json:true, body : body};
 		
 			request(options, function(error, response, body){			
 				if(error) reject();			
@@ -250,7 +249,7 @@ app.get("/geo", function(req, res)
 		/************ GET /checkToken *************************************/
 		
 		var body = {"token" : req.query.token};
-		var options = {url: 'http://172.30.1.167:3030/token', method: 'POST', json:true, body : body};
+		var options = {url: 'http://localhost:3030/token', method: 'POST', json:true, body : body};
 	
 		request(options, function(error, response, body){			
 			if(error ||body.resultat == 'ko') reject();			
@@ -342,7 +341,7 @@ app.get("/topic", function(req, res)
 	var getPromise1 = new Promise(function(resolve, reject) {
 		
 		var body = {"token" : req.query.token};
-		var options = {url: 'http://172.30.1.167:3030/token', method: 'POST', json:true, body : body};
+		var options = {url: 'http://localhost:3030/token', method: 'POST', json:true, body : body};
 	
 		request(options, function(error, response, body){			
 			if(error ||body.resultat == 'ko') reject();			
@@ -432,7 +431,7 @@ app.post("/topic", function(req, res)
 	/************ GET /checkToken *************************************/
 	
 		var body = {"token" : req.query.token};
-		var options = {url: 'http://172.30.1.167:3030/token', method: 'POST', json:true, body : body};
+		var options = {url: 'http://localhost:3030/token', method: 'POST', json:true, body : body};
 	
 		request(options, function(error, response, body){			
 			if(error ||body.resultat == 'ko') reject();			
@@ -534,7 +533,7 @@ app.put("/topic", function(req, res)
 	/************ GET /checkToken *************************************/
 	
 		var body = {"token" : req.query.token};
-		var options = {url: 'http://172.30.1.167:3030/token', method: 'POST', json:true, body : body};
+		var options = {url: 'http://localhost:3030/token', method: 'POST', json:true, body : body};
 	
 		request(options, function(error, response, body){			
 			if(error ||body.resultat == 'ko') reject();			
