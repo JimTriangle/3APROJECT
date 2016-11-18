@@ -23,6 +23,19 @@ func login(request: RouterRequest, response: RouterResponse, next: ()->Void)-> V
     do {
 		let db = try SQLite(path:"/home/wasoh/PROJET/3APROJECT/wsAuth/dbUser.db")
 		var query:String = "SELECT * FROM Users WHERE pseudo_user = "
+<<<<<<< HEAD
+		query +=  "'" + dataUser["pseudo_user"].string! + "', AND password_user"
+		query +=  "'" + dataUser["password_user"].string! + "';"
+
+		print(query)
+
+
+		do{
+			try db.execute(query)
+			response.status(.OK).send(json: JSON(["resultat":"ok"]))
+		}catch{
+			response.status(.OK).send(json: JSON(["resultat":"ko"]))
+=======
 		query +=  "'" + dataUser["pseudo_user"].string! + "' AND password_user = "
 		query +=  "'" + dataUser["password_user"].string! + "';"
 
@@ -58,6 +71,7 @@ func login(request: RouterRequest, response: RouterResponse, next: ()->Void)-> V
 		}catch{
 			response.status(.OK).send(json: JSON(["resultat":"ko"]))
 			return
+>>>>>>> 065f8aec128915fe941fef15a01f9da55bbd508d
 		}
 	}catch{
 		print("Erreur de connexion à la base de donnée")

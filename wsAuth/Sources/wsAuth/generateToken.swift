@@ -1,3 +1,19 @@
+<<<<<<< HEAD
+import Foundation
+import ClibBSD
+
+extension String {
+    static func random() -> String {
+        let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        var randomString: String = ""
+
+        for _ in 0..<6 {
+            let randomValue = arc4random_uniform(UInt32(base.characters.count))
+            randomString += "\(base[base.index(base.startIndex, offsetBy: Int(randomValue))])"
+        }
+        return randomString
+    }
+=======
 import HeliumLogger
 import Foundation
 import Kitura
@@ -51,4 +67,5 @@ func checkExistToken(token: String) -> Bool{
 		print("Echec de connexion à la base de donnée")
 		return false
 	}
+>>>>>>> 065f8aec128915fe941fef15a01f9da55bbd508d
 }

@@ -11,12 +11,12 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 var random_name = require('node-random-name');
 
-// connxion to redis server
+// connexion to redis server
 var redis = require("redis");
 
 /* TEST LOCAL - TEST GLOBAL */
-//var publisher = redis.createClient();
-var publisher = redis.createClient(6379, 'serveurRedis');
+var publisher = redis.createClient();
+//var publisher = redis.createClient(6379, '172.30.1.56');
 
 
 
@@ -57,7 +57,7 @@ app.get('/subChannel/topic', function (req, res) {
 	}
 	else {
 		ChannelName = jsonTopics[params['topicName']];;			// sinon on va chercher la channel name associée au topic demandé
-		console.log("Topic named \"" + params['topicName'] + "\" already exists ans is associated whith channel \"" + ChannelName + "\"");
+		console.log("Topic named \"" + params['topicName'] + "\" already exists and is associated whith channel \"" + ChannelName + "\"");
 
 	}
 	res.send(ChannelName); 										// retourne le nom du channel
@@ -169,58 +169,34 @@ function createChannelG(jsonGeolocObj) {
 }
 
 // new topic post recieved
-app.get('/newPost', function (req, res) {
+app.post('/newPost', function (req, res) {
 		
-	var params = querystring.parse(url.parse(req.url).query); 	// parametres de l'URL
-	var response = verifyIfChannelExistT(params['topicName']); 	// verifie si le topic est lié à une channel existante : true or false
+	console.log('app.post(/newPost)');
+	console.log(req.body);
+	var response = verifyIfChannelExistT(req.body.topic); 	// verifie si le topic est lié à une channel existante : true or false
 
-	if (response == true) { // si oui																
-		publisher.publish(jsonTopics[params['topicName']], "New post for this topic ...");
-	}	
-	res.send(200);
-
-});
-
-
-
-
-
-
-/* WEB SERVICE ALERT TOPIC SIMULATION  */
-app.get('/alert/geo', function (req, res) {
-
-	var AlertChannelRoutes = {
-						'subscribeRoute': 'http://127.0.0.1:3020/subChannel/geoloc',					 
-						'unsubscribeRoute':	'/unsubChannel/topic',					 
-						'data': {
-								'topic': 'antoine',								 
-								'date':	'date',						 
-								'geoposition': { 
-												'latitude': '56',
-												'longitude': '45'
-											
-												},	
-								'popularity': 'popular',
-								'perimeter' : '15'
-																	
-						}						
+	if (response == true) { // si oui
+		
+		publisher.publish(jsonTopics[req.body.topic], "Like !");
+		res.send({'resultat' : "ok"});
 	}
-	res.json(AlertChannelRoutes);
+	else res.send({'resultat' : "ko"});
 
-	
 });
 
-/* WEB SERVICE POST SIMULATION  */
-app.post('/topic', function (req, res) {
-	
-	console.log(req.body.topic);
-	res.send("OK");
-});
+
+
+
+
+
+
+
+
 
 
 
 app.listen(3020, function () {
-  console.log('serveur en marche ...');
+  console.log('serveur PubSub en marche port 3020 ...');
 });
 
 
