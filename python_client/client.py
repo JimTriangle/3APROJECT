@@ -108,55 +108,10 @@ while True :
 	
 					
 
-#subThread2 = geoloc_subcriber_thread('0', '0', '2');
-#subThread2.start()
 
 
 
 
-"""
-AlertChannelRoutes = {
-					'subscribeRoute': 'a subscribeRoute',					 
-					'unsubscribeRoute':	'a unsubscribeRoute',					 
-					'data': {
-							'topic': 'topic',								 
-							'date':	'date',						 
-							'geoposition': { 
-											'latitude': '56',
-											'longitude': '45'
-										
-											},	
-							'popularity': 'popular'	
-									
-					}
-					
-}
-
-print AlertChannelRoutes['data']['topic']
-"""
-
-"""
-
-class test_web_service_thread(Thread):
-   
-    def __init__(self):
-        Thread.__init__(self)
-
-    def run(self):	
-		print 'Le thread commence ...'
-		data = {'topic': 'myTopic',	'date':	'20-06-2016', 'geoposition': { 'latitude': '56', 'longitude': '45'}, 'popularity': 'popular',	'perimeter': 20}
-		data = json.dumps(data)
-		route = '/topic'
-		token = '/?token=123456789'
-		channelNameResp = requests.post('http://localhost:3020' + route + token, data, headers = {'Content-Type': 'application/json'})
-		print channelNameResp.text	
-
-#testWebServiceThread = test_web_service_thread();
-#testWebServiceThread.start()
-
-		#self.sub.subscribe(topicName.text)
-	
-"""
 
 
 

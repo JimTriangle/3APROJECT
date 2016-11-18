@@ -61,9 +61,6 @@ client.hset("activity:topic:saucisses:1", "date", "2016-01-12T12:51:32", redis.p
 */
 
 
-
-
-
 app.get('/', function (req, res)
 {
     res.send('Hello World!');
@@ -283,6 +280,7 @@ app.get("/geo", function(req, res)
 			var key_db = "activity:geoposition:" + latitude + ":" + longitude + ":*";
 			client.keys(key_db, function(keyErr, keyReply)
 			{
+				
 				var getPromises = [];
 				for (var key_activities in keyReply)				
 				{
@@ -373,6 +371,7 @@ app.get("/topic", function(req, res)
 			client.keys(key_db, function(keyErr, keyReply)
 			{
 				var getPromises = [];
+
 				for (var key_activities in keyReply)
 				{
 					var getPromise = new Promise(function(getResolve, getReject)
@@ -423,10 +422,15 @@ app.post("/topic", function(req, res)
 {
 	/************** CODE ANTOINE ******************************************/
 	
-	// Verifier validité token
+		// Verifier validité token
+	var nbTopic;
+	var nbGeo;
+	var nbToken;
 	
-	var getPromise1 = new Promise(function(resolve, reject) {
-
+	var getPromise1 = new Promise(function(resolve, reject) {		
+	
+	/************ GET /checkToken *************************************/
+	
 		var body = {"token" : req.query.token};
 		var options = {url: 'http://172.30.1.167:3030/token', method: 'POST', json:true, body : body};
 	
@@ -434,127 +438,100 @@ app.post("/topic", function(req, res)
 			if(error ||body.resultat == 'ko') reject();			
 			else resolve();	
 		});	
-	});	
-		
-	getPromise1.then(function() {		
+	
+	});		
+	getPromise1.then(function() {
 
-		// Insérer dans la base de données		
-		client.hset("activity:token:" + req.query.token + ":1", "topic", req.body.topic, redis.print);
-		client.hset("activity:token:" + req.query.token + ":1", "geoposition", req.body.geoposition.latitude + "," + req.body.geoposition.longitude, redis.print);
-		client.hset("activity:token:" + req.query.token + ":1", "date", "2016-01-09T12:51:32", redis.print);
-		
-		client.hset("activity:geoposition:" + req.body.geoposition.latitude + ":" + req.body.geoposition.longitude + ":1", "topic", req.body.topic, redis.print);
-		client.hset("activity:geoposition:" + req.body.geoposition.latitude + ":" + req.body.geoposition.longitude + ":1", "token", req.query.token, redis.print);
-		client.hset("activity:geoposition:" + req.body.geoposition.latitude + ":" + req.body.geoposition.longitude + ":1", "date", "2016-01-09T12:51:32", redis.print);
-		
-		client.hset("activity:topic:" + req.body.topic + ":1", "token", req.query.token, redis.print);
-		client.hset("activity:topic:" + req.body.topic + ":1", "geoposition", req.body.geoposition.latitude + "," + req.body.geoposition.longitude, redis.print);
-		client.hset("activity:topic:" + req.body.topic + ":1", "date", "2016-01-12T12:51:32", redis.print);
-		
-		// Envoyer au serveur pub sub l'activité		
-		/*var getPromise2 = new Promise(function(resolve, reject) {
+		var getPromise2 = new Promise(function(resolve, reject) {
 			
-			var body = req.body;
-			var options = {url: 'http://172.30.1.167:3030/token', method: 'POST', json:true, body : body};
-		
-			request(options, function(error, response, body){			
-				if(error ||body.resultat == 'ko') reject();			
-				else resolve();	
-			});		
+			var key_db = "activity:topic:" + req.body.topic + ":*";
+			client.keys(key_db, function(keyErr, keyReply) {
+				nbTopic = keyReply.length;
+				
+				var key_db = "activity:geoposition:" + req.body.geoposition.latitude + ":" + req.body.geoposition.longitude + ":*";
+				client.keys(key_db, function(keyErr, keyReply) {
+					nbGeo = keyReply.length;
+					
+					var key_db = "activity:token:" + req.query.token + ":*";
+					client.keys(key_db, function(keyErr, keyReply) {
+						nbToken = keyReply.length;
+						resolve();
+					});					
+				});				
+			});			
 		});	
 			
-		getPromise2.then(function() {
-			// Retour vide si tout va bien (200)
-			console.log("New post sent to pubsub server");			
+		getPromise2.then(function() {	
+			
+			nbTopic +=1 ;
+			nbGeo +=1 ;
+			nbToken +=1 ;			
+			
+			// Insérer dans la base de données		
+			client.hset("activity:token:" + req.query.token + ":" + nbToken, "topic", req.body.topic, redis.print);
+			client.hset("activity:token:" + req.query.token + ":" + nbToken, "geoposition", req.body.geoposition.latitude + "," + req.body.geoposition.longitude, redis.print);
+			client.hset("activity:token:" + req.query.token + ":" + nbToken, "date", "2016-01-09T12:51:32", redis.print);
+			
+			client.hset("activity:geoposition:" + req.body.geoposition.latitude + ":" + req.body.geoposition.longitude + ":" + nbGeo, "topic", req.body.topic, redis.print);
+			client.hset("activity:geoposition:" + req.body.geoposition.latitude + ":" + req.body.geoposition.longitude + ":" + nbGeo, "token", req.query.token, redis.print);
+			client.hset("activity:geoposition:" + req.body.geoposition.latitude + ":" + req.body.geoposition.longitude + ":" + nbGeo, "date", "2016-01-09T12:51:32", redis.print);
+			
+			client.hset("activity:topic:" + req.body.topic + ":" + nbTopic, "token", req.query.token, redis.print);
+			client.hset("activity:topic:" + req.body.topic + ":" + nbTopic, "geoposition", req.body.geoposition.latitude + "," + req.body.geoposition.longitude, redis.print);
+			client.hset("activity:topic:" + req.body.topic + ":" + nbTopic, "date", "2016-01-12T12:51:32", redis.print);
+			
+			// Envoyer au serveur pub sub l'activité		
+			var getPromise3 = new Promise(function(resolve, reject) {
+				
+				var body = req.body;
+				var options = {url: 'http://localhost:3020/newPost', method: 'POST', json:true, body : body};
+			
+				request(options, function(error, response, body){	
+					if(error || body.resultat == 'ko') reject();			
+					else resolve();
+				});		
+			});	
+				
+			getPromise3.then(function() {
+				// Retour vide si tout va bien (200)
+				console.log("New post sent to pubsub server");			
+			}, function()
+			{
+				res.json({"error" : "pubsub server connexion failed"});
+			});
+			
+			Promise.all([getPromise3]);
+			
 		}, function()
 		{
-			res.json({"error" : "pubsub server connexion failed"});
+			res.json({"error" : "authentification server connexion failed OR token error"});
 		});
 		
 		Promise.all([getPromise2]);
-		*/
+
+	
 	}, function()
 	{
 		res.json({"error" : "authentification server connexion failed OR token error"});
 	});
 	
 	Promise.all([getPromise1]);
-
-
 });
-
 
 
 
 // PUT TOPIC
 app.put("/topic", function(req, res)
 {
-
-var getPromise1 = new Promise(function(resolve, reject) {
-
-	var body = {"token" : req.query.token};
-	var options = {url: 'http://172.30.1.167:3030/token', method: 'PUT', json:true, body : body};
-
-	request(options, function(error, response, body){
-		if(error ||body.resultat == 'ko') reject();
-		else resolve();
-	});
-});
-
-getPromise1.then(function() {
-
-	var comptage = 1;
-	var index = 0;
 	
-	while (comptage != 0)
-	{ 
-		comptage = 0;
-		index = index++;
-		comptage = client.hlen("activity:token:" + req.query.token + ":1:"+index,redis.print);
-		if comptage = 0
-		{
-			client.hset("activity:token:" + req.query.token + ":1:"+index, "topic", req.body.topic, redis.print);
-			client.hset("activity:token:" + req.query.token + ":1:"+index, "geoposition", req.body.geoposition.latitude + "," + req.body.geoposition.longitude, redis.print);
-			client.hset("activity:token:" + req.query.token + ":1:"+index, "date", "2016-01-09T12:51:32", redis.print);
-		}	
-	}
-	
-	comptage = 1;
-	index=0;
-	
-	while(comptage != 0)
-	{
-		comptage = 0;
-		index = index++;
-		client.hlen("activity:geoposition:" + req.body.geoposition.latitude + ":" + req.body.geoposition.longitude + ":1:"+index);
-		if comptage = 0
-		{
-			client.hset("activity:geoposition:" + req.body.geoposition.latitude + ":" + req.body.geoposition.longitude + ":1:"+index, "topic", req.body.topic, redis.print);
-			client.hset("activity:geoposition:" + req.body.geoposition.latitude + ":" + req.body.geoposition.longitude + ":1:"+index, "token", req.query.token, redis.print);
-			client.hset("activity:geoposition:" + req.body.geoposition.latitude + ":" + req.body.geoposition.longitude + ":1:"+index, "date", "2016-01-09T12:51:32", redis.print);
-			}
-	}
+	var nbTopic;
+	var nbGeo;
+	var nbToken;
 
-	comptage =1;
-	index=0;
-	while(comptage != 0)
-	{
-		comptage = 0;
-		index = index++;
-		client.hlen("activity:topic:" + req.body.topic + ":1;"+index,redis.print);
-		if comptage = 0
-		{
-			client.hset("activity:topic:" + req.body.topic + ":1:"+index, "token", req.query.token, redis.print);
-			client.hset("activity:topic:" + req.body.topic + ":1:"+index, "geoposition", req.body.geoposition.latitude + "," + req.body.geoposition.longitude, redis.print);
-				client.hset("activity:topic:" + req.body.topic + ":1:"+index, "date", "2016-01-12T12:51:32", redis.print);
-				}
-	}
-	
-// Envoyer au serveur pub sub l'activité
-	var getPromise2 = new Promise(function(resolve, reject) {
+	var getPromise1 = new Promise(function(resolve, reject) {
 
-		var body = req.body;
-		var options = {url: 'http://172.30.1.167:3030/token', method: 'POST', json:true, body : body};
+		var body = {"token" : req.query.token};
+		var options = {url: 'http://172.30.1.167:3030/token', method: 'PUT', json:true, body : body};
 
 		request(options, function(error, response, body){
 			if(error ||body.resultat == 'ko') reject();
@@ -562,21 +539,65 @@ getPromise1.then(function() {
 		});
 	});
 
-	getPromise2.then(function() {
-		// Retour vide si tout va bien (200)
-		console.log("New post sent to pubsub server");
+	getPromise1.then(function() {	
+		
+		var getPromise2 = new Promise(function(resolve, reject) {
+			
+			var key_db = "activity:topic:" + req.body.topic + ":1:*";
+				client.keys(key_db, function(keyErr, keyReply) {
+				nbTopic = keyReply.length;
+				resolve();		
+			});			
+		});	
+			
+		getPromise2.then(function() {	
+			
+			nbTopic += 1;	
+			console.log('nbTopic : ' + nbTopic);
+			client.hset("activity:topic:" + req.body.topic + ":1:" + nbTopic, "token", req.query.token, redis.print);
+			client.hset("activity:topic:" + req.body.topic + ":1:" + nbTopic, "geoposition", req.body.geoposition.latitude + "," + req.body.geoposition.longitude, redis.print);
+			client.hset("activity:topic:" + req.body.topic + ":1:" + nbTopic, "date", "2016-01-12T12:51:32", redis.print);
+		
+			
+			// Envoyer au serveur pub sub l'activité
+			var getPromise3 = new Promise(function(resolve, reject) {
+				
+				var body = req.body;
+				var options = {url: 'http://localhost:3020/newPost', method: 'POST', json:true, body : body};
+			
+				request(options, function(error, response, body){			
+					if(error ||body.resultat == 'ko') reject();			
+					else resolve();	
+				});		
+			});	
+				
+			getPromise3.then(function() {
+				// Retour vide si tout va bien (200)
+				console.log("New post sent to pubsub server");			
+			}, function()
+			{
+				res.json({"error" : "pubsub server connexion failed"});
+			});
+		
+			Promise.all([getPromise3]);		
+		
+		console.log("New post sent to pubsub server");			
+
+		}, function()
+		{
+			res.json({"error" : "pubsub server connexion failed"});
+		});
+		
+		Promise.all([getPromise2]);
+
 	}, function()
 	{
-		res.json({"error" : "pubsub server connexion failed"});
+		console.log("New post sent to pubsub server");
+		res.json({"error" : "authentification server connexion failed OR token error"});
 	});
-
-	Promise.all([getPromise2]);
-
-}, function()
-{
-	res.json({"error" : "authentification server connexion failed OR token error"});
+	
+	Promise.all([getPromise1]);
 });
-
 
 
 

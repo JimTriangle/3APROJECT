@@ -171,12 +171,17 @@ function createChannelG(jsonGeolocObj) {
 // new topic post recieved
 app.post('/newPost', function (req, res) {
 		
-	var params = querystring.parse(url.parse(req.url).query); 	// parametres de l'URL
-	var response = verifyIfChannelExistT(params['topicName']); 	// verifie si le topic est lié à une channel existante : true or false
+	console.log('app.post(/newPost)');
+	console.log(req.body);
+	var response = verifyIfChannelExistT(req.body.topic); 	// verifie si le topic est lié à une channel existante : true or false
 
-	if (response == true) { // si oui																
-		publisher.publish(jsonTopics[params['topicName']], "Like !");
+	if (response == true) { // si oui
+		
+		publisher.publish(jsonTopics[req.body.topic], "Like !");
+		res.send({'resultat' : "ok"});
 	}
+	else res.send({'resultat' : "ko"});
+
 });
 
 
@@ -184,40 +189,9 @@ app.post('/newPost', function (req, res) {
 
 
 
-/* WEB SERVICE ALERT TOPIC SIMULATION  */
-app.get('/alert/geo', function (req, res) {
-
-	var AlertChannelRoutes = {
-						'subscribeRoute': 'http://127.0.0.1:3020/subChannel/geoloc',					 
-						'unsubscribeRoute':	'/unsubChannel/topic',					 
-						'data': {
-								'topic': 'antoine',								 
-								'date':	'date',						 
-								'geoposition': { 
-												'latitude': '56',
-												'longitude': '45'
-											
-												},	
-								'popularity': 'popular',
-								'perimeter' : '15'
-																	
-						}						
-	}
-	res.json(AlertChannelRoutes);
-
-	
-});
-
-/* WEB SERVICE POST SIMULATION  */
-app.post('/topic', function (req, res) {
-	
-	
-	console.log('longitude ' + req.body.geoposition.longitude);
 
 
 
-	res.send("OK");
-});
 
 
 
