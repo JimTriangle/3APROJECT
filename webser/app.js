@@ -528,38 +528,21 @@ app.put("/topic", function(req, res)
 	var nbGeo;
 	var nbToken;
 
-<<<<<<< HEAD
-	var getPromise1 = new Promise(function(resolve, reject) {
-=======
-	comptage =1;
-	index=0;
-	while(comptage != 0)
-	{
-		comptage = 0;
-		index = index++;
-		client.hlen("activity:topic:" + req.body.topic + ":1:"+index,redis.print);
-		if comptage = 0
-		{
-			client.hset("activity:topic:" + req.body.topic + ":1:"+index, "token", req.query.token, redis.print);
-			client.hset("activity:topic:" + req.body.topic + ":1:"+index, "geoposition", req.body.geoposition.latitude + "," + req.body.geoposition.longitude, redis.print);
-				client.hset("activity:topic:" + req.body.topic + ":1:"+index, "date", "2016-01-12T12:51:32", redis.print);
-				}
-	}
+
+	var getPromise1 = new Promise(function(resolve, reject) {		
 	
-// Envoyer au serveur pub sub l'activité
-	var getPromise2 = new Promise(function(resolve, reject) {
->>>>>>> c5f116eb9e59d773eab9a395b2c9b2506d75256b
-
+	/************ GET /checkToken *************************************/
+	
 		var body = {"token" : req.query.token};
-		var options = {url: 'http://172.30.1.167:3030/token', method: 'PUT', json:true, body : body};
-
-		request(options, function(error, response, body){
-			if(error ||body.resultat == 'ko') reject();
-			else resolve();
-		});
-	});
-
-	getPromise1.then(function() {	
+		var options = {url: 'http://172.30.1.167:3030/token', method: 'POST', json:true, body : body};
+	
+		request(options, function(error, response, body){			
+			if(error ||body.resultat == 'ko') reject();			
+			else resolve();	
+		});	
+	
+	});		
+	getPromise1.then(function() {
 		
 		var getPromise2 = new Promise(function(resolve, reject) {
 			
@@ -586,7 +569,7 @@ app.put("/topic", function(req, res)
 				var options = {url: 'http://localhost:3020/newPost', method: 'POST', json:true, body : body};
 			
 				request(options, function(error, response, body){			
-					if(error ||body.resultat == 'ko') reject();			
+					if(error) reject();			
 					else resolve();	
 				});		
 			});	
