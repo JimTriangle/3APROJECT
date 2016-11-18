@@ -13,8 +13,12 @@ Membres du groupe :
 - Pujolas Alex
 
 
+L'objectif premier du projet est de réaliser une application mobile de type client serveur. Nécessité d'implémenter des éléments tels qu'un serveur
+d'authentification, un système d'alerte, une base de données utilisateurs, une base de données Redis (noSQL), un webservice et une application mobile.
+L'objectif second est d'acquérir de nouvelles connaissances sur des telchnologies encore jamais utilisées.
 
-Rôles :
+
+Rôles principaux:
 
 Laura : Docker + route (swagger)
 
@@ -24,4 +28,6 @@ Alex : Authentification server
 
 Antoine : Alert System
 
-Jean-Marie : Reddis Bdd App et Sqlite Bdd User
+Jean-Marie : Reddis Bdd App et Sqlite Bdd User 
+
+
