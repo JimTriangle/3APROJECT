@@ -1,0 +1,763 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3C5281C286A7CBCE261475F4 /* Pods_TLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630118357A15FBE251667B6E /* Pods_TLite.framework */; };
+		3D05A8DA4BF5BF6D899E8BBD /* Pods_TLiteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E612CAA756A3AF8F74117B2 /* Pods_TLiteTests.framework */; };
+		3F1714E41DDDC330005C98CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F1714E21DDDC330005C98CA /* Main.storyboard */; };
+		3F6B879F1DD477B9001486AB /* TopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B879E1DD477B9001486AB /* TopicTableViewCell.swift */; };
+		3F6B87A31DD60B86001486AB /* TopicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B87A21DD60B86001486AB /* TopicTableViewController.swift */; };
+		3F6B87A71DDA1D5F001486AB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B87A61DDA1D5F001486AB /* MapViewController.swift */; };
+		3F6B87A91DDB1319001486AB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6B87A81DDB1319001486AB /* MapKit.framework */; };
+		3F6B87B31DDC740E001486AB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6B87B21DDC740E001486AB /* CoreLocation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		3FA542241DD35DA4007A92A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA542231DD35DA4007A92A1 /* AppDelegate.swift */; };
+		3FA542261DD35DA4007A92A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA542251DD35DA4007A92A1 /* ViewController.swift */; };
+		3FA5422B1DD35DA4007A92A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FA5422A1DD35DA4007A92A1 /* Assets.xcassets */; };
+		3FA5422E1DD35DA4007A92A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FA5422C1DD35DA4007A92A1 /* LaunchScreen.storyboard */; };
+		3FA542391DD35DA4007A92A1 /* TLiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA542381DD35DA4007A92A1 /* TLiteTests.swift */; };
+		3FA542441DD35DA4007A92A1 /* TLiteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA542431DD35DA4007A92A1 /* TLiteUITests.swift */; };
+		3FA542541DD3620F007A92A1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA542531DD3620F007A92A1 /* LoginViewController.swift */; };
+		3FFEB5A41DD3771B00A01170 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFEB5A31DD3771B00A01170 /* SignInViewController.swift */; };
+		C17C76DFE8CD5ADCD69CB3DF /* Pods_TLiteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B107A02C0569C7FB9A212C /* Pods_TLiteUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3FA542351DD35DA4007A92A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3FA542181DD35DA4007A92A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3FA5421F1DD35DA4007A92A1;
+			remoteInfo = TLite;
+		};
+		3FA542401DD35DA4007A92A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3FA542181DD35DA4007A92A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3FA5421F1DD35DA4007A92A1;
+			remoteInfo = TLite;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		17A31F97EBACC15009922E76 /* Pods-TLite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TLite.release.xcconfig"; path = "Pods/Target Support Files/Pods-TLite/Pods-TLite.release.xcconfig"; sourceTree = "<group>"; };
+		36F9C880C4B5E772E0B4ABFB /* Pods-TLite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TLite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TLite/Pods-TLite.debug.xcconfig"; sourceTree = "<group>"; };
+		3F1714E31DDDC330005C98CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3F6B879E1DD477B9001486AB /* TopicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicTableViewCell.swift; sourceTree = "<group>"; };
+		3F6B87A21DD60B86001486AB /* TopicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicTableViewController.swift; sourceTree = "<group>"; };
+		3F6B87A61DDA1D5F001486AB /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		3F6B87A81DDB1319001486AB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3F6B87B21DDC740E001486AB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3FA542201DD35DA4007A92A1 /* TLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FA542231DD35DA4007A92A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3FA542251DD35DA4007A92A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3FA5422A1DD35DA4007A92A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3FA5422D1DD35DA4007A92A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3FA5422F1DD35DA4007A92A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FA542341DD35DA4007A92A1 /* TLiteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TLiteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FA542381DD35DA4007A92A1 /* TLiteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLiteTests.swift; sourceTree = "<group>"; };
+		3FA5423A1DD35DA4007A92A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FA5423F1DD35DA4007A92A1 /* TLiteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TLiteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FA542431DD35DA4007A92A1 /* TLiteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLiteUITests.swift; sourceTree = "<group>"; };
+		3FA542451DD35DA4007A92A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FA542531DD3620F007A92A1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3FFEB5A31DD3771B00A01170 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		47B107A02C0569C7FB9A212C /* Pods_TLiteUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TLiteUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		630118357A15FBE251667B6E /* Pods_TLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D23B8EAECF16AF0001A1F8B /* Pods-TLiteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TLiteUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TLiteUITests/Pods-TLiteUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		79B47536F9A760FD41918E26 /* Pods-TLiteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TLiteUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TLiteUITests/Pods-TLiteUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7E612CAA756A3AF8F74117B2 /* Pods_TLiteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TLiteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDEDC27D3959EEC4A7265C54 /* Pods-TLiteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TLiteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TLiteTests/Pods-TLiteTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EC1BCAF1DB66DB682FEAADFA /* Pods-TLiteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TLiteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TLiteTests/Pods-TLiteTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3FA5421D1DD35DA4007A92A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F6B87B31DDC740E001486AB /* CoreLocation.framework in Frameworks */,
+				3F6B87A91DDB1319001486AB /* MapKit.framework in Frameworks */,
+				3C5281C286A7CBCE261475F4 /* Pods_TLite.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FA542311DD35DA4007A92A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D05A8DA4BF5BF6D899E8BBD /* Pods_TLiteTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FA5423C1DD35DA4007A92A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C17C76DFE8CD5ADCD69CB3DF /* Pods_TLiteUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02D214EC012B15080F5EFDC9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				36F9C880C4B5E772E0B4ABFB /* Pods-TLite.debug.xcconfig */,
+				17A31F97EBACC15009922E76 /* Pods-TLite.release.xcconfig */,
+				CDEDC27D3959EEC4A7265C54 /* Pods-TLiteTests.debug.xcconfig */,
+				EC1BCAF1DB66DB682FEAADFA /* Pods-TLiteTests.release.xcconfig */,
+				6D23B8EAECF16AF0001A1F8B /* Pods-TLiteUITests.debug.xcconfig */,
+				79B47536F9A760FD41918E26 /* Pods-TLiteUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3F6B87B01DDB6C18001486AB /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Ressources;
+			sourceTree = "<group>";
+		};
+		3FA542171DD35DA4007A92A1 = {
+			isa = PBXGroup;
+			children = (
+				3F6B87B01DDB6C18001486AB /* Ressources */,
+				3FA542221DD35DA4007A92A1 /* TLite */,
+				3FA542371DD35DA4007A92A1 /* TLiteTests */,
+				3FA542421DD35DA4007A92A1 /* TLiteUITests */,
+				3FA542211DD35DA4007A92A1 /* Products */,
+				02D214EC012B15080F5EFDC9 /* Pods */,
+				7A3F4D2DEBDEC7EC2EB816AA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3FA542211DD35DA4007A92A1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3FA542201DD35DA4007A92A1 /* TLite.app */,
+				3FA542341DD35DA4007A92A1 /* TLiteTests.xctest */,
+				3FA5423F1DD35DA4007A92A1 /* TLiteUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3FA542221DD35DA4007A92A1 /* TLite */ = {
+			isa = PBXGroup;
+			children = (
+				3F1714E21DDDC330005C98CA /* Main.storyboard */,
+				3FA542231DD35DA4007A92A1 /* AppDelegate.swift */,
+				3FA542251DD35DA4007A92A1 /* ViewController.swift */,
+				3F6B87A61DDA1D5F001486AB /* MapViewController.swift */,
+				3F6B87A21DD60B86001486AB /* TopicTableViewController.swift */,
+				3FFEB5A31DD3771B00A01170 /* SignInViewController.swift */,
+				3FA542531DD3620F007A92A1 /* LoginViewController.swift */,
+				3F6B879E1DD477B9001486AB /* TopicTableViewCell.swift */,
+				3FA5422A1DD35DA4007A92A1 /* Assets.xcassets */,
+				3FA5422C1DD35DA4007A92A1 /* LaunchScreen.storyboard */,
+				3FA5422F1DD35DA4007A92A1 /* Info.plist */,
+			);
+			path = TLite;
+			sourceTree = "<group>";
+		};
+		3FA542371DD35DA4007A92A1 /* TLiteTests */ = {
+			isa = PBXGroup;
+			children = (
+				3FA542381DD35DA4007A92A1 /* TLiteTests.swift */,
+				3FA5423A1DD35DA4007A92A1 /* Info.plist */,
+			);
+			path = TLiteTests;
+			sourceTree = "<group>";
+		};
+		3FA542421DD35DA4007A92A1 /* TLiteUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3FA542431DD35DA4007A92A1 /* TLiteUITests.swift */,
+				3FA542451DD35DA4007A92A1 /* Info.plist */,
+			);
+			path = TLiteUITests;
+			sourceTree = "<group>";
+		};
+		7A3F4D2DEBDEC7EC2EB816AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F6B87B21DDC740E001486AB /* CoreLocation.framework */,
+				3F6B87A81DDB1319001486AB /* MapKit.framework */,
+				630118357A15FBE251667B6E /* Pods_TLite.framework */,
+				7E612CAA756A3AF8F74117B2 /* Pods_TLiteTests.framework */,
+				47B107A02C0569C7FB9A212C /* Pods_TLiteUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3FA5421F1DD35DA4007A92A1 /* TLite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FA542481DD35DA4007A92A1 /* Build configuration list for PBXNativeTarget "TLite" */;
+			buildPhases = (
+				1BE9611E7588857B4E76C986 /* [CP] Check Pods Manifest.lock */,
+				3FA5421C1DD35DA4007A92A1 /* Sources */,
+				3FA5421D1DD35DA4007A92A1 /* Frameworks */,
+				3FA5421E1DD35DA4007A92A1 /* Resources */,
+				B4F52E3D2DF75CD9F934AF41 /* [CP] Embed Pods Frameworks */,
+				575483443BB4B851F0491BAC /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TLite;
+			productName = TLite;
+			productReference = 3FA542201DD35DA4007A92A1 /* TLite.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3FA542331DD35DA4007A92A1 /* TLiteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FA5424B1DD35DA4007A92A1 /* Build configuration list for PBXNativeTarget "TLiteTests" */;
+			buildPhases = (
+				5F10C17F06B29F2D0ECE74AC /* [CP] Check Pods Manifest.lock */,
+				3FA542301DD35DA4007A92A1 /* Sources */,
+				3FA542311DD35DA4007A92A1 /* Frameworks */,
+				3FA542321DD35DA4007A92A1 /* Resources */,
+				43BBE118CAD6CD5A775784CB /* [CP] Embed Pods Frameworks */,
+				03ACB8C62FB6D720B9FCF38B /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3FA542361DD35DA4007A92A1 /* PBXTargetDependency */,
+			);
+			name = TLiteTests;
+			productName = TLiteTests;
+			productReference = 3FA542341DD35DA4007A92A1 /* TLiteTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3FA5423E1DD35DA4007A92A1 /* TLiteUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FA5424E1DD35DA4007A92A1 /* Build configuration list for PBXNativeTarget "TLiteUITests" */;
+			buildPhases = (
+				16482AC7C925D22A6EF76B70 /* [CP] Check Pods Manifest.lock */,
+				3FA5423B1DD35DA4007A92A1 /* Sources */,
+				3FA5423C1DD35DA4007A92A1 /* Frameworks */,
+				3FA5423D1DD35DA4007A92A1 /* Resources */,
+				0DD196E12F7CEB8E4BD42659 /* [CP] Embed Pods Frameworks */,
+				BDFB3DF3312513ED81BDCD3A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3FA542411DD35DA4007A92A1 /* PBXTargetDependency */,
+			);
+			name = TLiteUITests;
+			productName = TLiteUITests;
+			productReference = 3FA5423F1DD35DA4007A92A1 /* TLiteUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3FA542181DD35DA4007A92A1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = MDR;
+				TargetAttributes = {
+					3FA5421F1DD35DA4007A92A1 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = S8C8H7A859;
+						ProvisioningStyle = Automatic;
+					};
+					3FA542331DD35DA4007A92A1 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3FA5421F1DD35DA4007A92A1;
+					};
+					3FA5423E1DD35DA4007A92A1 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3FA5421F1DD35DA4007A92A1;
+					};
+				};
+			};
+			buildConfigurationList = 3FA5421B1DD35DA4007A92A1 /* Build configuration list for PBXProject "TLite" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3FA542171DD35DA4007A92A1;
+			productRefGroup = 3FA542211DD35DA4007A92A1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3FA5421F1DD35DA4007A92A1 /* TLite */,
+				3FA542331DD35DA4007A92A1 /* TLiteTests */,
+				3FA5423E1DD35DA4007A92A1 /* TLiteUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3FA5421E1DD35DA4007A92A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FA5422E1DD35DA4007A92A1 /* LaunchScreen.storyboard in Resources */,
+				3FA5422B1DD35DA4007A92A1 /* Assets.xcassets in Resources */,
+				3F1714E41DDDC330005C98CA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FA542321DD35DA4007A92A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FA5423D1DD35DA4007A92A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03ACB8C62FB6D720B9FCF38B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TLiteTests/Pods-TLiteTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0DD196E12F7CEB8E4BD42659 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TLiteUITests/Pods-TLiteUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		16482AC7C925D22A6EF76B70 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		1BE9611E7588857B4E76C986 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		43BBE118CAD6CD5A775784CB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TLiteTests/Pods-TLiteTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		575483443BB4B851F0491BAC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TLite/Pods-TLite-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5F10C17F06B29F2D0ECE74AC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B4F52E3D2DF75CD9F934AF41 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TLite/Pods-TLite-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDFB3DF3312513ED81BDCD3A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TLiteUITests/Pods-TLiteUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3FA5421C1DD35DA4007A92A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F6B879F1DD477B9001486AB /* TopicTableViewCell.swift in Sources */,
+				3FFEB5A41DD3771B00A01170 /* SignInViewController.swift in Sources */,
+				3FA542541DD3620F007A92A1 /* LoginViewController.swift in Sources */,
+				3FA542261DD35DA4007A92A1 /* ViewController.swift in Sources */,
+				3FA542241DD35DA4007A92A1 /* AppDelegate.swift in Sources */,
+				3F6B87A31DD60B86001486AB /* TopicTableViewController.swift in Sources */,
+				3F6B87A71DDA1D5F001486AB /* MapViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FA542301DD35DA4007A92A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FA542391DD35DA4007A92A1 /* TLiteTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FA5423B1DD35DA4007A92A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FA542441DD35DA4007A92A1 /* TLiteUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3FA542361DD35DA4007A92A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3FA5421F1DD35DA4007A92A1 /* TLite */;
+			targetProxy = 3FA542351DD35DA4007A92A1 /* PBXContainerItemProxy */;
+		};
+		3FA542411DD35DA4007A92A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3FA5421F1DD35DA4007A92A1 /* TLite */;
+			targetProxy = 3FA542401DD35DA4007A92A1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3F1714E21DDDC330005C98CA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F1714E31DDDC330005C98CA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3FA5422C1DD35DA4007A92A1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FA5422D1DD35DA4007A92A1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3FA542461DD35DA4007A92A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3FA542471DD35DA4007A92A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3FA542491DD35DA4007A92A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36F9C880C4B5E772E0B4ABFB /* Pods-TLite.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = S8C8H7A859;
+				INFOPLIST_FILE = TLite/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = imerir.TLite;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		3FA5424A1DD35DA4007A92A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17A31F97EBACC15009922E76 /* Pods-TLite.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = S8C8H7A859;
+				INFOPLIST_FILE = TLite/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = imerir.TLite;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		3FA5424C1DD35DA4007A92A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDEDC27D3959EEC4A7265C54 /* Pods-TLiteTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TLiteTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = imerir.TLiteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TLite.app/TLite";
+			};
+			name = Debug;
+		};
+		3FA5424D1DD35DA4007A92A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC1BCAF1DB66DB682FEAADFA /* Pods-TLiteTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TLiteTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = imerir.TLiteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TLite.app/TLite";
+			};
+			name = Release;
+		};
+		3FA5424F1DD35DA4007A92A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D23B8EAECF16AF0001A1F8B /* Pods-TLiteUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = TLiteUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = imerir.TLiteUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = TLite;
+			};
+			name = Debug;
+		};
+		3FA542501DD35DA4007A92A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79B47536F9A760FD41918E26 /* Pods-TLiteUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = TLiteUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = imerir.TLiteUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = TLite;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3FA5421B1DD35DA4007A92A1 /* Build configuration list for PBXProject "TLite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FA542461DD35DA4007A92A1 /* Debug */,
+				3FA542471DD35DA4007A92A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3FA542481DD35DA4007A92A1 /* Build configuration list for PBXNativeTarget "TLite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FA542491DD35DA4007A92A1 /* Debug */,
+				3FA5424A1DD35DA4007A92A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3FA5424B1DD35DA4007A92A1 /* Build configuration list for PBXNativeTarget "TLiteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FA5424C1DD35DA4007A92A1 /* Debug */,
+				3FA5424D1DD35DA4007A92A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3FA5424E1DD35DA4007A92A1 /* Build configuration list for PBXNativeTarget "TLiteUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FA5424F1DD35DA4007A92A1 /* Debug */,
+				3FA542501DD35DA4007A92A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3FA542181DD35DA4007A92A1 /* Project object */;
+}

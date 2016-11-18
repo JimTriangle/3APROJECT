@@ -21,7 +21,7 @@ func tokens(request: RouterRequest, response: RouterResponse, next: ()->Void)-> 
    	let tokenInit = JSON(data: json!)
 
     do {
-		let db = try SQLite(path:"/home/wasoh/3APROJECT/wsAuth/dbUser.db")
+		let db = try SQLite(path:"/home/wasoh/PROJET/3APROJECT/wsAuth/dbUser.db")
 
 		var query:String = "SELECT token FROM Tokens WHERE id_user = (SELECT id_user FROM Tokens WHERE token = "
 		query += "'" + tokenInit["token"].string! + "');"

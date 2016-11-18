@@ -21,7 +21,7 @@ func token(request: RouterRequest, response: RouterResponse, next: ()->Void)-> V
    	let swiftyResult = JSON(data: json!)
 
     do {
-		let db = try SQLite(path:"/home/wasoh/3APROJECT/wsAuth/dbUser.db")
+		let db = try SQLite(path:"/home/wasoh/PROJET/3APROJECT/wsAuth/dbUser.db")
 		var dureeTokenMax:Double = 99999999999
 
 		var query:String = "SELECT date_last_use FROM Tokens WHERE token = "
@@ -30,16 +30,17 @@ func token(request: RouterRequest, response: RouterResponse, next: ()->Void)-> V
 		do{
 			let strDate = try db.execute(query)
 
+			print(query)
+			print(strDate)
 			let oldDateString:String = String(strDate[0].data["date_last_use"]!)
 			let dateFormatter = DateFormatter()
-			dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+			dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
 			let oldDate = dateFormatter.date(from:oldDateString)
-
 			let currentDate = Date()
+
 			let dureeToken = currentDate.timeIntervalSince(oldDate!)
 
-			if(dureeToken > dureeTokenMax){			
-				db.close()
+			if(dureeToken > dureeTokenMax){
 				response.status(.OK).send(json: JSON(["resultat":"ko"]))
 			}else{
 				dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -47,7 +48,6 @@ func token(request: RouterRequest, response: RouterResponse, next: ()->Void)-> V
 				query = "UPDATE Token SET date_last_use = "
 				query += "'" + currentDateString + "' WHERE token = "
 				query += "'" + swiftyResult["token"].string! + "';"
-				db.close()
 				response.status(.OK).send(json: JSON(["resultat":"ok"]))
 			}
 		}catch{
@@ -61,6 +61,6 @@ func token(request: RouterRequest, response: RouterResponse, next: ()->Void)-> V
 		response.status(.internalServerError)
 		return
 	}
-
+	
 	next()
 }
